@@ -149,26 +149,6 @@ region = Rect2( 50, 25, 25, 25 )
 atlas = ExtResource( 19 )
 region = Rect2( 75, 25, 25, 25 )
 
-[sub_resource type="AtlasTexture" id=38]
-atlas = ExtResource( 45 )
-region = Rect2( 0, 0, 25, 26 )
-
-[sub_resource type="AtlasTexture" id=39]
-atlas = ExtResource( 45 )
-region = Rect2( 25, 0, 25, 26 )
-
-[sub_resource type="AtlasTexture" id=40]
-atlas = ExtResource( 45 )
-region = Rect2( 50, 0, 25, 26 )
-
-[sub_resource type="AtlasTexture" id=41]
-atlas = ExtResource( 45 )
-region = Rect2( 75, 0, 25, 26 )
-
-[sub_resource type="AtlasTexture" id=42]
-atlas = ExtResource( 45 )
-region = Rect2( 100, 0, 25, 26 )
-
 [sub_resource type="AtlasTexture" id=45]
 atlas = ExtResource( 18 )
 region = Rect2( 0, 0, 25, 25 )
@@ -188,6 +168,10 @@ region = Rect2( 75, 0, 25, 25 )
 [sub_resource type="AtlasTexture" id=49]
 atlas = ExtResource( 18 )
 region = Rect2( 100, 0, 25, 25 )
+
+[sub_resource type="AtlasTexture" id=44]
+atlas = ExtResource( 44 )
+region = Rect2( 0, 0, 25, 26 )
 
 [sub_resource type="AtlasTexture" id=43]
 atlas = ExtResource( 43 )
@@ -237,9 +221,25 @@ region = Rect2( 25, 0, 25, 26 )
 atlas = ExtResource( 43 )
 region = Rect2( 0, 0, 25, 26 )
 
-[sub_resource type="AtlasTexture" id=44]
-atlas = ExtResource( 44 )
+[sub_resource type="AtlasTexture" id=38]
+atlas = ExtResource( 45 )
 region = Rect2( 0, 0, 25, 26 )
+
+[sub_resource type="AtlasTexture" id=39]
+atlas = ExtResource( 45 )
+region = Rect2( 25, 0, 25, 26 )
+
+[sub_resource type="AtlasTexture" id=40]
+atlas = ExtResource( 45 )
+region = Rect2( 50, 0, 25, 26 )
+
+[sub_resource type="AtlasTexture" id=41]
+atlas = ExtResource( 45 )
+region = Rect2( 75, 0, 25, 26 )
+
+[sub_resource type="AtlasTexture" id=42]
+atlas = ExtResource( 45 )
+region = Rect2( 100, 0, 25, 26 )
 
 [sub_resource type="SpriteFrames" id=50]
 animations = [ {
@@ -258,19 +258,14 @@ animations = [ {
 "name": "def",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 38 ), SubResource( 39 ), SubResource( 40 ), SubResource( 41 ), SubResource( 42 ), SubResource( 41 ), SubResource( 40 ), SubResource( 39 ) ],
-"loop": true,
-"name": "groundrun",
-"speed": 10.0
-}, {
 "frames": [ SubResource( 45 ), SubResource( 46 ), SubResource( 47 ), SubResource( 48 ), SubResource( 49 ) ],
 "loop": false,
 "name": "die",
 "speed": 7.0
 }, {
-"frames": [ ExtResource( 51 ) ],
+"frames": [ SubResource( 44 ), SubResource( 44 ) ],
 "loop": true,
-"name": "onairside",
+"name": "fallhit",
 "speed": 5.0
 }, {
 "frames": [ SubResource( 43 ) ],
@@ -278,20 +273,25 @@ animations = [ {
 "name": "onair",
 "speed": 5.0
 }, {
+"frames": [ ExtResource( 46 ) ],
+"loop": true,
+"name": "stay",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 51 ) ],
+"loop": true,
+"name": "onairside",
+"speed": 5.0
+}, {
 "frames": [ SubResource( 27 ), SubResource( 28 ), SubResource( 29 ), SubResource( 30 ), SubResource( 31 ), SubResource( 32 ), SubResource( 33 ), SubResource( 34 ), SubResource( 35 ), SubResource( 36 ), SubResource( 37 ) ],
 "loop": false,
 "name": "convertback",
 "speed": 20.0
 }, {
-"frames": [ SubResource( 44 ), SubResource( 44 ) ],
+"frames": [ SubResource( 38 ), SubResource( 39 ), SubResource( 40 ), SubResource( 41 ), SubResource( 42 ), SubResource( 41 ), SubResource( 40 ), SubResource( 39 ) ],
 "loop": true,
-"name": "fallhit",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 46 ) ],
-"loop": true,
-"name": "stay",
-"speed": 5.0
+"name": "groundrun",
+"speed": 10.0
 } ]
 
 [sub_resource type="RectangleShape2D" id=61]
@@ -495,7 +495,7 @@ light_mask = 2
 position = Vector2( 0.0582275, 0.0350952 )
 frames = SubResource( 50 )
 animation = "win"
-frame = 5
+frame = 4
 playing = true
 
 [node name="cam" type="Camera2D" parent="."]
