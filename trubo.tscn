@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://turbo.gd" type="Script" id=1]
+[ext_resource path="res://sound/ambient/fast maestro tlakaelel.mp3" type="AudioStream" id=2]
+
+[node name="turbo" type="Area2D"]
+script = ExtResource( 1 )
+turbo = 400.0
+
+[node name="fast" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 2 )
+volume_db = -10.613

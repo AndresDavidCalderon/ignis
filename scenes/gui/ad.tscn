@@ -1,0 +1,74 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://admob-lib/admob.gd" type="Script" id=1]
+[ext_resource path="res://scenes/gui/sider.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/gui/styles/levelbut.tres" type="StyleBox" id=3]
+[ext_resource path="res://scenes/gui/styles/pressed.tres" type="StyleBox" id=4]
+[ext_resource path="res://scenes/gui/styles/focus.tres" type="StyleBox" id=5]
+[ext_resource path="res://images/gui/continue.png" type="Texture" id=6]
+[ext_resource path="res://scenes/gui/continue.gd" type="Script" id=7]
+[ext_resource path="res://scenes/gui/ad.gd" type="Script" id=8]
+[ext_resource path="res://fonts/pixelable.ttf" type="DynamicFontData" id=9]
+
+[sub_resource type="DynamicFont" id=1]
+size = 32
+outline_size = 2
+outline_color = Color( 0.137255, 0.27451, 0.4, 1 )
+font_data = ExtResource( 9 )
+
+[node name="main" type="Node"]
+script = ExtResource( 8 )
+
+[node name="ad" type="Node" parent="."]
+script = ExtResource( 1 )
+is_real = true
+interstitial_id = "ca-app-pub-7555417284496340/5102709671"
+child_directed = true
+
+[node name="canv" type="CanvasLayer" parent="."]
+
+[node name="sider" parent="canv" instance=ExtResource( 2 )]
+position = Vector2( 304, 512 )
+centery = true
+centerx = true
+
+[node name="continue" type="Button" parent="canv/sider"]
+margin_left = -72.0
+margin_top = -80.0
+margin_right = -32.0
+margin_bottom = -40.0
+rect_scale = Vector2( 3.8298, 3.8298 )
+custom_styles/hover = ExtResource( 5 )
+custom_styles/pressed = ExtResource( 4 )
+custom_styles/focus = ExtResource( 5 )
+custom_styles/normal = ExtResource( 3 )
+icon = ExtResource( 6 )
+script = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="label" type="Label" parent="canv/sider"]
+margin_left = -208.0
+margin_top = -144.0
+margin_right = 226.0
+margin_bottom = -114.0
+custom_fonts/font = SubResource( 1 )
+text = "WAIT"
+align = 1
+valign = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="cam" type="Camera2D" parent="canv/sider"]
+current = true
+
+[node name="adtimeout" type="Timer" parent="."]
+wait_time = 8.48
+
+[connection signal="interstitial_failed_to_load" from="ad" to="." method="_on_ad_interstitial_failed_to_load"]
+[connection signal="interstitial_loaded" from="ad" to="." method="_on_ad_interstitial_loaded"]
+[connection signal="pressed" from="canv/sider/continue" to="." method="_on_continue_pressed"]
+[connection signal="timeout" from="adtimeout" to="." method="_on_adtimeout_timeout"]

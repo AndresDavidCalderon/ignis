@@ -1,0 +1,36 @@
+[gd_scene load_steps=23 format=2]
+
+[ext_resource path="res://singletons/levelman.gd" type="Script" id=1]
+[ext_resource path="res://scenes/main.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/levels/level2.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/levels/level3.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/levels/level4.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/levels/level5.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/levels/level6.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scenes/levels/level7.tscn" type="PackedScene" id=8]
+[ext_resource path="res://scenes/levels/level8.tscn" type="PackedScene" id=9]
+[ext_resource path="res://scenes/levels/level9.tscn" type="PackedScene" id=10]
+[ext_resource path="res://scenes/levels/level11bats.tscn" type="PackedScene" id=11]
+[ext_resource path="res://scenes/levels/level12.tscn" type="PackedScene" id=12]
+[ext_resource path="res://scenes/levels/level10.tscn" type="PackedScene" id=13]
+[ext_resource path="res://scenes/levels/level13.tscn" type="PackedScene" id=14]
+[ext_resource path="res://scenes/levels/level14.tscn" type="PackedScene" id=15]
+[ext_resource path="res://scenes/levels/level15bats.tscn" type="PackedScene" id=16]
+[ext_resource path="res://scenes/levels/level16.tscn" type="PackedScene" id=17]
+[ext_resource path="res://scenes/levels/level17.tscn" type="PackedScene" id=18]
+[ext_resource path="res://scenes/levels/level18.tscn" type="PackedScene" id=19]
+[ext_resource path="res://scenes/levels/level19.tscn" type="PackedScene" id=20]
+[ext_resource path="res://scenes/levels/level20final.tscn" type="PackedScene" id=21]
+[ext_resource path="res://sound/ambient/Maestro Tlakaelel - Jesse Gallagher.mp3" type="AudioStream" id=22]
+
+[node name="levelman" type="Node"]
+script = ExtResource( 1 )
+settings = {
+"invert": false,
+"sound": true
+}
+levellist = [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 13 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 15 ), ExtResource( 14 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ) ]
+
+[node name="background" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 22 )
+volume_db = -6.714

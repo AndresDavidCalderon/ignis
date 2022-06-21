@@ -1,0 +1,40 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://images/gui/taphere.png" type="Texture" id=1]
+
+[sub_resource type="CanvasItemMaterial" id=1]
+particles_animation = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="Gradient" id=2]
+offsets = PoolRealArray( 0, 0.40678 )
+colors = PoolColorArray( 0, 0.423529, 1, 1, 0.776471, 0.658824, 0.0784314, 1 )
+
+[sub_resource type="GradientTexture" id=3]
+gradient = SubResource( 2 )
+
+[sub_resource type="ParticlesMaterial" id=4]
+flag_disable_z = true
+spread = 180.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 11.72
+angular_velocity = 0.18
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+linear_accel = 0.48
+linear_accel_random = 0.28
+scale = 0.93
+scale_random = 0.14
+color_ramp = SubResource( 3 )
+anim_speed = 23.81
+
+[node name="dr" type="Particles2D"]
+material = SubResource( 1 )
+position = Vector2( 216, -56 )
+amount = 2
+lifetime = 3.0
+explosiveness = 0.24
+process_material = SubResource( 4 )
+texture = ExtResource( 1 )

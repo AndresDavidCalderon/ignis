@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="512mm"
+   height="512mm"
+   viewBox="0 0 512 512"
+   version="1.1"
+   id="svg8"
+   inkscape:version="1.0.2 (e86c870879, 2021-01-15, custom)"
+   sodipodi:docname="logo.svg"
+   inkscape:export-filename="C:\Users\Janus\3D Objects\godotgit3d\jumplight\images\playstore\logosquare.png"
+   inkscape:export-xdpi="25.4"
+   inkscape:export-ydpi="25.4">
+  <defs
+     id="defs2">
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient871">
+      <stop
+         style="stop-color:#000000;stop-opacity:0.33333337"
+         offset="0"
+         id="stop867" />
+      <stop
+         style="stop-color:#fafafa;stop-opacity:0.20999999"
+         offset="1"
+         id="stop869" />
+    </linearGradient>
+    <rect
+       x="38.55357"
+       y="77.863098"
+       width="157.99405"
+       height="80.886902"
+       id="rect835" />
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient871"
+       id="radialGradient873"
+       cx="117.44147"
+       cy="110.01954"
+       fx="117.44147"
+       fy="110.01954"
+       r="59.374081"
+       gradientTransform="matrix(1.095462,-0.78101835,0.24481882,0.34338463,-38.220651,164.22462)"
+       gradientUnits="userSpaceOnUse" />
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.32"
+     inkscape:cx="1102.1462"
+     inkscape:cy="1076.5187"
+     inkscape:document-units="mm"
+     inkscape:current-layer="layer1"
+     inkscape:document-rotation="0"
+     showgrid="false"
+     inkscape:window-width="1258"
+     inkscape:window-height="1040"
+     inkscape:window-x="397"
+     inkscape:window-y="27"
+     inkscape:window-maximized="0" />
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Capa 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <rect
+       style="fill:#000000;stroke:#bbbbbb;stroke-width:9.39814;stroke-opacity:0;paint-order:stroke fill markers"
+       id="rect839"
+       width="512.80292"
+       height="513.68622"
+       x="0.53957236"
+       y="-0.24955881"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <text
+       xml:space="preserve"
+       id="text833"
+       style="font-size:8.46667px;line-height:1.25;font-family:sans-serif;text-align:center;white-space:pre;shape-inside:url(#rect835);stroke:url(#radialGradient873);stroke-opacity:1;"
+       x="4.2932796"
+       y="0"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96"
+       transform="matrix(7.6698449,0,0,7.2265394,-648.35516,-526.07234)"><tspan
+         x="104.76009"
+         y="97.868018"><tspan
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:22.2431px;font-family:'Odibee Sans';-inkscape-font-specification:'Odibee Sans';text-align:center;text-anchor:middle;stroke:url(#radialGradient873);stroke-opacity:1">void
+</tspan></tspan><tspan
+         x="96.229881"
+         y="125.6719"><tspan
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:22.2431px;font-family:'Odibee Sans';-inkscape-font-specification:'Odibee Sans';text-align:center;text-anchor:middle;stroke:url(#radialGradient873);stroke-opacity:1">games</tspan></tspan></text>
+  </g>
+</svg>

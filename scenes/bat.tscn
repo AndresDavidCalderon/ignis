@@ -1,0 +1,105 @@
+[gd_scene load_steps=16 format=2]
+
+[ext_resource path="res://images/bat/batidle.png" type="Texture" id=1]
+[ext_resource path="res://scenes/bat.gd" type="Script" id=2]
+[ext_resource path="res://images/bat/batfly.png" type="Texture" id=3]
+[ext_resource path="res://scenes/bat/test.gd" type="Script" id=4]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 12.6968, 14.4677 )
+
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 1 )
+region = Rect2( 0, 0, 27, 27 )
+
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 1 )
+region = Rect2( 27, 0, 27, 27 )
+
+[sub_resource type="AtlasTexture" id=4]
+atlas = ExtResource( 1 )
+region = Rect2( 54, 0, 27, 27 )
+
+[sub_resource type="AtlasTexture" id=5]
+atlas = ExtResource( 1 )
+region = Rect2( 81, 0, 27, 27 )
+
+[sub_resource type="AtlasTexture" id=6]
+atlas = ExtResource( 3 )
+region = Rect2( 0, 0, 30, 27 )
+
+[sub_resource type="AtlasTexture" id=7]
+atlas = ExtResource( 3 )
+region = Rect2( 30, 0, 30, 27 )
+
+[sub_resource type="AtlasTexture" id=8]
+atlas = ExtResource( 3 )
+region = Rect2( 60, 0, 30, 27 )
+
+[sub_resource type="AtlasTexture" id=9]
+atlas = ExtResource( 3 )
+region = Rect2( 90, 0, 30, 27 )
+
+[sub_resource type="SpriteFrames" id=10]
+animations = [ {
+"frames": [ SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ) ],
+"loop": false,
+"name": "idle",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ) ],
+"loop": true,
+"name": "fly",
+"speed": 10.11
+} ]
+
+[sub_resource type="RectangleShape2D" id=11]
+extents = Vector2( 79.889, 81.3271 )
+
+[node name="bat" type="KinematicBody2D"]
+script = ExtResource( 2 )
+speed = 40.0
+alejarse = 80.0
+mindist = 4.0
+
+[node name="col" type="CollisionShape2D" parent="."]
+position = Vector2( 0, 1.23884 )
+shape = SubResource( 1 )
+
+[node name="spr" type="AnimatedSprite" parent="."]
+frames = SubResource( 10 )
+animation = "idle"
+frame = 3
+playing = true
+
+[node name="playerfirstdect" type="Area2D" parent="."]
+position = Vector2( 0, 67.4875 )
+
+[node name="col" type="CollisionShape2D" parent="playerfirstdect"]
+position = Vector2( 0, -66.2487 )
+shape = SubResource( 11 )
+
+[node name="afraid" type="Timer" parent="."]
+
+[node name="line" type="Line2D" parent="."]
+
+[node name="test" type="Label" parent="."]
+margin_left = 12.0
+margin_top = -31.0
+margin_right = 185.0
+margin_bottom = 18.0
+text = "dir"
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="pos" type="Label" parent="."]
+margin_left = -0.125
+margin_top = 17.625
+margin_right = 39.875
+margin_bottom = 31.625
+text = "´pos"
+__meta__ = {
+"_edit_use_anchors_": false
+}

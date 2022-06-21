@@ -1,0 +1,93 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://images/tilesets/rope/redaff/unstdor.png" type="Texture" id=1]
+[ext_resource path="res://images/tilesets/rope/redaff/snowoverunst.png" type="Texture" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 43.7504, 3.65967 )
+
+[sub_resource type="GDScript" id=2]
+script/source = "extends Area2D
+
+onready var player=get_node(\"/root/main/player\")
+var st
+export(bool) var sugonstop
+
+func _physics_process(_delta):
+	if $spr.playing:
+		get_parent().move_and_slide(Vector2(0,200))
+		if get_parent().get_slide_count()>0 and sugonstop:
+			get_node(\"/root/main/player/UI/pauser/back/anim\").play(\"appear\")
+"
+
+[sub_resource type="GDScript" id=3]
+script/source = "extends Sprite
+var animation
+var playing
+
+# Declare member variables here. Examples:
+# var a = 2
+# var b = \"text\"
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+#func _process(delta):
+#	pass
+"
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 8.63302, 4.50247 )
+
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 46, 1 )
+
+[sub_resource type="OccluderPolygon2D" id=6]
+polygon = PoolVector2Array( -45.2688, -1.76398, 45.0618, -1.42095, 44.9967, 1.56397, -45.6656, 2.15492 )
+
+[node name="flooruns" type="Node2D"]
+
+[node name="hit" type="KinematicBody2D" parent="."]
+
+[node name="col" type="CollisionShape2D" parent="hit"]
+visible = false
+shape = SubResource( 1 )
+
+[node name="ropedect" type="Area2D" parent="hit"]
+collision_layer = 8
+collision_mask = 8
+script = SubResource( 2 )
+
+[node name="spr" type="Sprite" parent="hit/ropedect"]
+texture = ExtResource( 1 )
+script = SubResource( 3 )
+
+[node name="col" type="CollisionShape2D" parent="hit/ropedect"]
+visible = false
+position = Vector2( 43.1704, 0 )
+shape = SubResource( 4 )
+
+[node name="lef" type="CollisionShape2D" parent="hit/ropedect"]
+visible = false
+position = Vector2( -42.7222, 0 )
+shape = SubResource( 4 )
+
+[node name="ice" type="StaticBody2D" parent="hit/ropedect"]
+visible = false
+
+[node name="icespr" type="Sprite" parent="hit/ropedect/ice"]
+position = Vector2( 0, -1 )
+texture = ExtResource( 2 )
+
+[node name="col" type="CollisionShape2D" parent="hit/ropedect/ice"]
+position = Vector2( 0, -3 )
+shape = SubResource( 5 )
+disabled = true
+
+[node name="lio" type="LightOccluder2D" parent="hit"]
+visible = false
+occluder = SubResource( 6 )

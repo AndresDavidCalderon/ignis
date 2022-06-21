@@ -1,0 +1,116 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://scenes/rack.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/tilebase.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/player.tscn" type="PackedScene" id=3]
+[ext_resource path="res://images/tilesets/dirtfall.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/flooruns.tscn" type="PackedScene" id=5]
+[ext_resource path="res://images/tilesets/glass.tscn" type="PackedScene" id=6]
+[ext_resource path="res://images/tilesets/rope/getle.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scenes/win.tscn" type="PackedScene" id=8]
+[ext_resource path="res://images/particles/end.tscn" type="PackedScene" id=9]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 80, 120 )
+
+[node name="main" type="Node"]
+
+[node name="rot3" parent="." instance=ExtResource( 7 )]
+position = Vector2( 220, 400 )
+rotation = 1.5708
+
+[node name="rot13" parent="." instance=ExtResource( 7 )]
+position = Vector2( 240, 400 )
+
+[node name="rot4" parent="." instance=ExtResource( 7 )]
+position = Vector2( 220, 380 )
+rotation = 1.5708
+
+[node name="rot5" parent="." instance=ExtResource( 7 )]
+position = Vector2( 220, 360 )
+rotation = 1.5708
+
+[node name="rot6" parent="." instance=ExtResource( 7 )]
+position = Vector2( 220, 340 )
+rotation = 1.5708
+
+[node name="rot7" parent="." instance=ExtResource( 7 )]
+position = Vector2( 220, 320 )
+rotation = 1.5708
+
+[node name="rot8" parent="." instance=ExtResource( 7 )]
+position = Vector2( 240, 300 )
+
+[node name="rot9" parent="." instance=ExtResource( 7 )]
+position = Vector2( 260, 300 )
+
+[node name="rot10" parent="." instance=ExtResource( 7 )]
+position = Vector2( 280, 300 )
+
+[node name="rot11" parent="." instance=ExtResource( 7 )]
+position = Vector2( 300, 300 )
+
+[node name="rot12" parent="." instance=ExtResource( 7 )]
+position = Vector2( 320, 300 )
+canfire = false
+
+[node name="glass" parent="." instance=ExtResource( 6 )]
+tile_data = PoolIntArray( -131075, 0, 65541, -131074, 0, 5, -196607, 0, 65541, -196606, 0, 5, -65539, 0, 65542, -65538, 0, 262146, -65537, 0, 3, -131072, 0, 3, -131071, 0, 262145, -131070, 0, 6, -2, 0, 65540, -1, 0, 0, -65536, 0, 0, -65535, 0, 4, 65534, 0, 65540, 65535, 0, 0, 0, 0, 0, 1, 0, 4, 131069, 0, 65541, 131070, 0, 262145, 131071, 0, 65539, 65536, 0, 65539, 65537, 0, 262146, 65538, 0, 5, 196605, 0, 65542, 196606, 0, 6, 131073, 0, 65542, 131074, 0, 6, 393220, 0, 65541, 393221, 0, 3, 393222, 0, 3, 393223, 0, 5, 458756, 0, 65540, 458757, 0, 0, 458758, 0, 0, 458759, 0, 4, 524292, 0, 65540, 524293, 0, 0, 524294, 0, 1, 524295, 0, 6, 589828, 0, 65540, 589829, 0, 1, 589830, 0, 6, 655364, 0, 65540, 655365, 0, 4, 720900, 0, 65542, 720901, 0, 196614, 720902, 0, 196612, 917508, 0, 196613, 917509, 0, 7, 917510, 0, 7, 917511, 0, 196612 )
+
+[node name="flooruns" parent="." instance=ExtResource( 5 )]
+position = Vector2( 364.527, 302.093 )
+
+[node name="floorballs" parent="." instance=ExtResource( 4 )]
+position = Vector2( 660, 520 )
+speed = 2.0
+
+[node name="tileset" parent="." instance=ExtResource( 2 )]
+z_index = 0
+tile_data = PoolIntArray( -196609, 0, 0, -262144, 0, 2, -131073, 0, 65536, -196608, 0, 65538, -65538, 0, 131078, -65537, 0, 65543, -131072, 0, 131079, -131071, 0, 65542, -4, 0, 0, -3, 0, 1, -2, 0, 131080, -65535, 0, 262152, -65534, 0, 1, -65533, 0, 2, 65532, 0, 131072, 65533, 0, 131073, 65534, 0, 262150, 1, 0, 65544, 2, 0, 131073, 3, 0, 131074, 131070, 0, 196614, 131071, 0, 262147, 65536, 0, 262147, 65537, 0, 6, 131078, 0, 131078, 131079, 0, 262147, 131080, 0, 262147, 131081, 0, 262147, 131082, 0, 262147, 131083, 0, 262147, 131084, 0, 65542, 196614, 0, 65539, 196620, 0, 65539, 262150, 0, 65539, 262156, 0, 65539, 327684, 0, 131078, 327685, 0, 262147, 327686, 0, 131076, 327687, 0, 2, 327692, 0, 65539, 393220, 0, 65539, 393222, 0, 131072, 393223, 0, 131074, 393226, 0, 0, 393227, 0, 1, 393228, 0, 131080, 458755, 0, 0, 458756, 0, 131080, 458762, 0, 65536, 458763, 0, 196608, 458764, 0, 131079, 458765, 0, 262147, 458766, 0, 262147, 458767, 0, 262147, 458768, 0, 262147, 458769, 0, 262147, 458770, 0, 65542, 524291, 0, 65536, 524292, 0, 65538, 524294, 0, 131078, 524295, 0, 262148, 524298, 0, 131072, 524299, 0, 131074, 524306, 0, 65539, 589827, 0, 65536, 589828, 0, 65538, 589830, 0, 131075, 589842, 0, 65539, 655363, 0, 65536, 655364, 0, 65538, 655378, 0, 65539, 720899, 0, 131072, 720900, 0, 131079, 720901, 0, 262147, 720902, 0, 262147, 720903, 0, 262147, 720904, 0, 262147, 720905, 0, 262147, 720906, 0, 262147, 720907, 0, 262147, 720908, 0, 262147, 720909, 0, 65542, 720914, 0, 65539, 786445, 0, 196614, 786446, 0, 65542, 786450, 0, 65539, 851982, 0, 65539, 851986, 0, 196614, 851987, 0, 262147, 851988, 0, 262147, 851989, 0, 262147, 851990, 0, 262147, 851991, 0, 262147, 851992, 0, 262147, 851993, 0, 65542, 917518, 0, 65539, 917529, 0, 65539, 983054, 0, 65539, 983065, 0, 65539, 1048590, 0, 65539, 1048601, 0, 65539, 1114126, 0, 65539, 1114137, 0, 65539, 1179662, 0, 196614, 1179663, 0, 262147, 1179664, 0, 131081, 1179665, 0, 1, 1179666, 0, 1, 1179667, 0, 1, 1179668, 0, 1, 1179669, 0, 1, 1179670, 0, 1, 1179671, 0, 1, 1179672, 0, 1, 1179673, 0, 131080, 1245200, 0, 131072, 1245201, 0, 131073, 1245202, 0, 131073, 1245203, 0, 131073, 1245204, 0, 131073, 1245205, 0, 131073, 1245206, 0, 5, 1245207, 0, 131073, 1245208, 0, 131073, 1245209, 0, 131074, 1310742, 0, 131075 )
+
+[node name="rack" parent="." instance=ExtResource( 1 )]
+position = Vector2( 340, 220 )
+
+[node name="rack2" parent="." instance=ExtResource( 1 )]
+position = Vector2( 360, 220 )
+
+[node name="rack3" parent="." instance=ExtResource( 1 )]
+position = Vector2( 400, 200 )
+
+[node name="rack4" parent="." instance=ExtResource( 1 )]
+position = Vector2( 420, 220 )
+
+[node name="rack5" parent="." instance=ExtResource( 1 )]
+position = Vector2( 460, 200 )
+
+[node name="rack6" parent="." instance=ExtResource( 1 )]
+position = Vector2( 400, 240 )
+
+[node name="rack7" parent="." instance=ExtResource( 1 )]
+position = Vector2( 360, 260 )
+
+[node name="rack8" parent="." instance=ExtResource( 1 )]
+position = Vector2( 360, 180 )
+mass = 0.165306
+
+[node name="player" parent="." instance=ExtResource( 3 )]
+position = Vector2( 360, 380 )
+
+[node name="win" parent="." instance=ExtResource( 8 )]
+position = Vector2( 1000, 600 )
+
+[node name="col" parent="win" index="0"]
+position = Vector2( -60, 20 )
+shape = SubResource( 1 )
+
+[node name="li" parent="win" index="1"]
+position = Vector2( 0, -40 )
+
+[node name="partic4" parent="win" instance=ExtResource( 9 )]
+position = Vector2( -40, 20 )
+
+[node name="partic5" parent="win" instance=ExtResource( 9 )]
+position = Vector2( -80, 80 )
+
+[editable path="floorballs"]
+[editable path="win"]

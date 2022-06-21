@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://images/forout.png" type="Texture" id=1]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 57.6, 16 )
+
+[node name="win" type="Area2D"]
+collision_layer = 4
+collision_mask = 4
+
+[node name="col" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+
+[node name="li" type="Light2D" parent="."]
+position = Vector2( 0, -42.3729 )
+scale = Vector2( 2.41991, 1.79414 )
+texture = ExtResource( 1 )
+texture_scale = 1.28
+color = Color( 1, 0.329412, 0, 1 )
+energy = 1.61
+shadow_enabled = true

@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://images/tilesets/fogar.gd" type="Script" id=1]
+
+[node name="fogar" type="Area2D"]
+position = Vector2( 705.602, 752.219 )
+script = ExtResource( 1 )
+
+[node name="colpol" type="CollisionPolygon2D" parent="."]
+z_index = -3
+polygon = PoolVector2Array( -296.894, -288.728, 226.795, -284.482, 237.398, 238.829, -264.342, 250.053 )
+
+[connection signal="body_entered" from="." to="." method="_on_fogar_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_fogar_body_exited"]

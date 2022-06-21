@@ -1,0 +1,203 @@
+[gd_scene load_steps=34 format=2]
+
+[ext_resource path="res://images/tilesets/rope/le.png" type="Texture" id=1]
+[ext_resource path="res://images/tilesets/rope/getle.gd" type="Script" id=2]
+[ext_resource path="res://images/tilesets/rope/linvertede.png" type="Texture" id=3]
+[ext_resource path="res://images/tilesets/rope/base.gd" type="Script" id=4]
+[ext_resource path="res://images/tilesets/rope/ropesound.tscn" type="PackedScene" id=5]
+[ext_resource path="res://images/tilesets/rope/soundcont.tscn" type="PackedScene" id=6]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 9.62552, 1.74876 )
+
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 1 )
+region = Rect2( 0, 0, 40, 40 )
+
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 1 )
+region = Rect2( 40, 0, 40, 40 )
+
+[sub_resource type="AtlasTexture" id=4]
+atlas = ExtResource( 1 )
+region = Rect2( 80, 0, 40, 40 )
+
+[sub_resource type="AtlasTexture" id=5]
+atlas = ExtResource( 1 )
+region = Rect2( 120, 0, 40, 40 )
+
+[sub_resource type="AtlasTexture" id=6]
+atlas = ExtResource( 1 )
+region = Rect2( 160, 0, 40, 40 )
+
+[sub_resource type="AtlasTexture" id=7]
+atlas = ExtResource( 1 )
+region = Rect2( 200, 0, 40, 40 )
+
+[sub_resource type="AtlasTexture" id=8]
+atlas = ExtResource( 1 )
+region = Rect2( 240, 0, 40, 40 )
+
+[sub_resource type="AtlasTexture" id=9]
+atlas = ExtResource( 1 )
+region = Rect2( 280, 0, 40, 40 )
+
+[sub_resource type="AtlasTexture" id=10]
+atlas = ExtResource( 1 )
+region = Rect2( 320, 0, 40, 40 )
+
+[sub_resource type="AtlasTexture" id=11]
+atlas = ExtResource( 1 )
+region = Rect2( 360, 0, 40, 40 )
+
+[sub_resource type="AtlasTexture" id=12]
+atlas = ExtResource( 3 )
+region = Rect2( 0, 0, 40, 40 )
+
+[sub_resource type="AtlasTexture" id=13]
+atlas = ExtResource( 3 )
+region = Rect2( 40, 0, 40, 40 )
+
+[sub_resource type="AtlasTexture" id=14]
+atlas = ExtResource( 3 )
+region = Rect2( 80, 0, 40, 40 )
+
+[sub_resource type="AtlasTexture" id=15]
+atlas = ExtResource( 3 )
+region = Rect2( 120, 0, 40, 40 )
+
+[sub_resource type="AtlasTexture" id=16]
+atlas = ExtResource( 3 )
+region = Rect2( 160, 0, 40, 40 )
+
+[sub_resource type="AtlasTexture" id=17]
+atlas = ExtResource( 3 )
+region = Rect2( 200, 0, 40, 40 )
+
+[sub_resource type="AtlasTexture" id=18]
+atlas = ExtResource( 3 )
+region = Rect2( 240, 0, 40, 40 )
+
+[sub_resource type="AtlasTexture" id=19]
+atlas = ExtResource( 3 )
+region = Rect2( 280, 0, 40, 40 )
+
+[sub_resource type="AtlasTexture" id=20]
+atlas = ExtResource( 3 )
+region = Rect2( 320, 0, 40, 40 )
+
+[sub_resource type="AtlasTexture" id=21]
+atlas = ExtResource( 3 )
+region = Rect2( 360, 0, 40, 40 )
+
+[sub_resource type="SpriteFrames" id=22]
+animations = [ {
+"frames": [ SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ) ],
+"loop": false,
+"name": "fire",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 12 ), SubResource( 13 ), SubResource( 14 ), SubResource( 15 ), SubResource( 16 ), SubResource( 17 ), SubResource( 18 ), SubResource( 19 ), SubResource( 20 ), SubResource( 21 ) ],
+"loop": true,
+"name": "firei",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=23]
+extents = Vector2( 1.58061, 3.56037 )
+
+[sub_resource type="RectangleShape2D" id=24]
+extents = Vector2( 1.58061, 3.50032 )
+
+[sub_resource type="RectangleShape2D" id=25]
+extents = Vector2( 1.51891, 3.04816 )
+
+[sub_resource type="RectangleShape2D" id=26]
+extents = Vector2( 2.9452, 1.64303 )
+
+[sub_resource type="RectangleShape2D" id=27]
+extents = Vector2( 16, 16 )
+
+[node name="rot" type="Node2D"]
+script = ExtResource( 4 )
+
+[node name="getle" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 8
+script = ExtResource( 2 )
+reportdelet = true
+sound = ExtResource( 5 )
+sound2 = ExtResource( 6 )
+
+[node name="col" type="CollisionShape2D" parent="getle"]
+position = Vector2( -10.6606, 0 )
+z_index = 1
+shape = SubResource( 1 )
+
+[node name="spr" type="AnimatedSprite" parent="getle"]
+position = Vector2( -10.6606, 0 )
+frames = SubResource( 22 )
+animation = "fire"
+speed_scale = 5.794
+offset = Vector2( 10, 0 )
+
+[node name="up" type="Area2D" parent="getle"]
+position = Vector2( 0, -8.34262 )
+collision_layer = 8
+collision_mask = 8
+monitorable = false
+
+[node name="col" type="CollisionShape2D" parent="getle/up"]
+modulate = Color( 0.352941, 0.807843, 0.0980392, 1 )
+position = Vector2( 0, 0.817581 )
+shape = SubResource( 23 )
+
+[node name="own" type="Area2D" parent="getle"]
+position = Vector2( -28.3577, 0 )
+rotation = 1.5708
+collision_layer = 8
+collision_mask = 8
+monitorable = false
+
+[node name="col" type="CollisionShape2D" parent="getle/own"]
+modulate = Color( 0.282353, 0.827451, 0.0588235, 1 )
+position = Vector2( -1.38283e-05, -3.8213 )
+shape = SubResource( 24 )
+
+[node name="down" type="Area2D" parent="getle"]
+position = Vector2( 0, 8.28572 )
+collision_layer = 8
+collision_mask = 8
+monitorable = false
+
+[node name="col" type="CollisionShape2D" parent="getle/down"]
+modulate = Color( 0.407843, 0.792157, 0.0862745, 1 )
+shape = SubResource( 25 )
+
+[node name="cont" type="Area2D" parent="getle"]
+position = Vector2( 8.11468, 0 )
+collision_layer = 8
+collision_mask = 8
+monitorable = false
+
+[node name="col" type="CollisionShape2D" parent="getle/cont"]
+modulate = Color( 0.580392, 0.886275, 0.0313726, 1 )
+shape = SubResource( 26 )
+
+[node name="playerget" type="Area2D" parent="."]
+
+[node name="col" type="CollisionShape2D" parent="playerget"]
+modulate = Color( 1, 0.376471, 0, 1 )
+position = Vector2( -10.6606, 0 )
+shape = SubResource( 27 )
+
+[connection signal="animation_finished" from="getle/spr" to="getle" method="_on_spr_animation_finished"]
+[connection signal="area_entered" from="getle/up" to="getle" method="newnei" binds= [ "U" ]]
+[connection signal="area_exited" from="getle/up" to="getle" method="outnei" binds= [ "U" ]]
+[connection signal="area_entered" from="getle/own" to="getle" method="newnei" binds= [ "L" ]]
+[connection signal="area_exited" from="getle/own" to="getle" method="outnei" binds= [ "L" ]]
+[connection signal="area_entered" from="getle/down" to="getle" method="newnei" binds= [ "D" ]]
+[connection signal="area_exited" from="getle/down" to="getle" method="outnei" binds= [ "D" ]]
+[connection signal="area_entered" from="getle/cont" to="getle" method="newnei" binds= [ "R" ]]
+[connection signal="area_exited" from="getle/cont" to="getle" method="outnei" binds= [ "R" ]]
+[connection signal="body_entered" from="playerget" to="getle" method="_on_playerget_body_entered"]
