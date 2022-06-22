@@ -1,17 +1,22 @@
 extends TileMap
 
+export var bounce:float
+export var impulse_multiplier:float
+export var icemult:float=1.3
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-export var icemult=1.4
-
-# Called when the node enters the scene tree for the first time.
 func _ready():
-	if icemult>1.4:
-		modulate.a=1-((icemult)-1.4)
+	if impulse_multiplier>1.4:
+		modulate.a=1-((impulse_multiplier)-1.4)
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+func apply_effect(collision_position:Vector2)->Vector2:
+	if abs(collision_position.x)>abs(collision_position.y):
+		if collision_position.x<0:
+			return Vector2(-bounce,levelman.player.current_y_speed*impulse_multiplier)
+		else:
+			return Vector2(bounce,levelman.player.current_y_speed*impulse_multiplier)
+	else:
+		if collision_position.x<0:
+			return Vector2(levelman.player.current_x_speed*impulse_multiplier,bounce)
+		else:
+			return Vector2(levelman.player.current_x_speed*impulse_multiplier,bounce)
+	

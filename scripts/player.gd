@@ -9,32 +9,13 @@ export(float)var gravity
 export(float) var x_acceleration
 var lives=true
 export(float) var gravityh
-export(float) var grasp
+export(float) var friction
 var lastpos=Vector2()
 export(float) var moment=0
 export (float) var newmoment=6
 
-
-#when the player changes direction a lot it lowers.
-
-#accumulated direction changes
-
-
-#"force" that each direction change adds
-export(float) var lower_force
-
-#"force" that each direction change adds
-var current_lowering_force:float=0
-
-#force substracted when you dont change direction for a certain time.
-export(float) var lower_cooldown
-
-#once current_lowering_force surpasses this, the lowering happens.
-export(float) var lowering_treshold
-
 export(float) var minup
 
-export(bool) var suggestbackonrou
 var landed:bool=false
 var ended:bool=false
 
@@ -45,7 +26,9 @@ var platformer_mode:bool=false
 export(float) var icemult=1.4
 
 export(int) var _c_onplatformer
-export(float) var mingoup
+
+#once the y force goes belong this treshold, the player falls.
+export(float) var min_y_force
 export(float) var platformer_gravity
 export(float) var onplatjump
 
@@ -59,78 +42,48 @@ func _ready():
 	$anim.animation="def"
 	$col.shape=load("res://treses/playershapenormal.tres")
 
+func _init():
+	levelman.player=self
+
 func _physics_process(delta):
 	move_and_slide(Vector2(current_x_speed,-current_y_speed))
+	
 	if get_slide_count()>0:
-		var result=get_slide_collision(0)
-		var colider=result.get_collider()
-		var isrou=false
-		if colider.get_class()!="RigidBody2D":
-			match colider.name:
-				"rou":
-					isrou="stop"
-					if suggestbackonrou:
-						$UI/pauser/back/anim.play("appear")
-				"ice":
-					isrou="ice"
-			if $ceildetect.get_overlapping_bodies().size()>0:
-				var ex=$ceildetect.get_overlapping_bodies()[0]
-				if current_y_speed>0:
-					current_y_speed/=grasp
-					print("ceil!")
-				match isrou:
-					"stop":
-						current_x_speed/=grasp
-					"ice":
-						current_y_speed-=icego
-						if ex.name=="ice":
-							current_x_speed*=ex.icemult
-			if $floordect.get_overlapping_bodies().size()>0:
-				var ex=$floordect.get_overlapping_bodies()[0]
+		for idx in get_slide_count()-1:
+			var slide:=get_slide_collision(idx)
+			$ColDirDebug.global_position=slide.position
+			
+			var current_force:float=0.0
+			
+			if sign(slide.position.y-position.y)==-sign(current_y_speed):
+				if not platformer_mode:
+					current_x_speed*=friction
 				if current_y_speed<0:
-					current_y_speed/=grasp
 					if platformer_mode and not landed:
-						current_x_speed/=grasp
 						$anim.animation="fallhit"
 						landed=true
-				match isrou:
-					"stop":
-						current_x_speed/=grasp
-					"ice":
-						current_y_speed+=icego*sign(current_x_speed)
-						if ex.name=="ice":
-							current_x_speed*=ex.icemult
-			if $leftdect.get_overlapping_bodies().size()>0:
-				var ex=$leftdect.get_overlapping_bodies()[0]
-				if current_x_speed<0:
-					current_x_speed/=grasp
-				match isrou:
-					"stop":
-						current_y_speed/=grasp
-					"ice":
-						current_x_speed+=icego*sign(current_x_speed)
-						if ex.name=="ice":
-							current_y_speed*=ex.icemult
-			elif $rightdect.get_overlapping_bodies().size()>0:
-				var ex=$rightdect.get_overlapping_bodies()[0]
-				if current_x_speed>0:
-					current_x_speed/=grasp
-				match isrou:
-					"stop":
-						current_y_speed/=grasp
-					"ice":
-						current_x_speed-=icego*sign(current_x_speed)
-						if ex.name=="ice":
-							current_y_speed*=ex.icemult
-	if $floordect.get_overlapping_bodies().size()<1:
+				current_y_speed=0
+				$VerticalDebug.show()
+				
+			if sign(slide.position.x-position.x)==sign(current_x_speed) and abs(slide.position.x)>abs(slide.position.y):
+				if not platformer_mode:
+					current_y_speed*=friction
+				current_x_speed=0
+				$HorizontalDebug.show()
+				
+			if slide.collider.has_method("apply_effect"):
+				var new_forces=slide.collider.apply_effect(slide.position-position)
+				
+	else:
 		landed=false
+	
 	if current_y_speed>0:
 		current_y_speed-=gravity*delta
 		moment=newmoment
-		if current_y_speed<mingoup and platformer_mode:
+		
+		if current_y_speed<min_y_force:
 			current_y_speed=-1
-		if current_y_speed<minup and not platformer_mode:
-			current_y_speed=-1
+		
 		if platformer_mode and $anim.animation!="convert":
 			$anim.animation="onair"
 			if abs(current_x_speed)>15:
@@ -147,31 +100,16 @@ func _physics_process(delta):
 			$anim.animation="groundrun"
 			$anim.speed_scale=(abs(current_x_speed)/x_acceleration)/2
 	else:
-		current_x_speed/=3*delta
-		if landed and $anim.animation!="fallhit" and platformer_mode:
-			$anim.animation="stay"
+		current_x_speed=0
 
 var downed=false
-
-func _process(delta):
-	if current_lowering_force>0:
-		current_lowering_force-=lower_cooldown*delta
-		if current_lowering_force>lowering_treshold and not downed:
-			current_y_speed-=speed
-			downed=true
-	else:
-		downed=false
 
 
 func jump():
 	var movement_x_sign:int=sign(position.x-get_global_mouse_position().x)
 	var movement_y_sign:int=sign(position.y-get_global_mouse_position().y)
-	if platformer_mode==false or $floordect.get_overlapping_bodies().size()>0:
+	if platformer_mode==false or landed:
 		current_x_speed+=x_acceleration*movement_x_sign
-		
-		if movement_y_sign==-1 and last_direction!=movement_x_sign and current_lowering_force<lowering_treshold:
-			last_direction=movement_x_sign
-			current_lowering_force+=lower_force
 		
 		if position.y>get_global_mouse_position().y:
 			current_y_speed+=speed*(1-(current_y_speed/speed))

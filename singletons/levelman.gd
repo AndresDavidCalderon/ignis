@@ -3,6 +3,7 @@ extends Node
 signal on_pause(enabled)
 
 var checkpoint
+var player:KinematicBody2D
 export(Dictionary) var settings
 var ads
 var levelend=[]

@@ -5,6 +5,8 @@
 [ext_resource path="res://scenes/gui/Jump.gd" type="Script" id=3]
 [ext_resource path="res://scenes/gui/PauseButton.gd" type="Script" id=4]
 [ext_resource path="res://scenes/Effects.gd" type="Script" id=5]
+[ext_resource path="res://scenes/gui/Debug/TemporalLabel.gd" type="Script" id=6]
+[ext_resource path="res://images/spikhei_n.png" type="Texture" id=7]
 [ext_resource path="res://scenes/gui/styles/levelbut.tres" type="StyleBox" id=10]
 [ext_resource path="res://scenes/gui/styles/focus.tres" type="StyleBox" id=11]
 [ext_resource path="res://scripts/pause.gd" type="Script" id=14]
@@ -149,6 +151,30 @@ region = Rect2( 50, 25, 25, 25 )
 atlas = ExtResource( 19 )
 region = Rect2( 75, 25, 25, 25 )
 
+[sub_resource type="AtlasTexture" id=43]
+atlas = ExtResource( 43 )
+region = Rect2( 50, 52, 25, 26 )
+
+[sub_resource type="AtlasTexture" id=38]
+atlas = ExtResource( 45 )
+region = Rect2( 0, 0, 25, 26 )
+
+[sub_resource type="AtlasTexture" id=39]
+atlas = ExtResource( 45 )
+region = Rect2( 25, 0, 25, 26 )
+
+[sub_resource type="AtlasTexture" id=40]
+atlas = ExtResource( 45 )
+region = Rect2( 50, 0, 25, 26 )
+
+[sub_resource type="AtlasTexture" id=41]
+atlas = ExtResource( 45 )
+region = Rect2( 75, 0, 25, 26 )
+
+[sub_resource type="AtlasTexture" id=42]
+atlas = ExtResource( 45 )
+region = Rect2( 100, 0, 25, 26 )
+
 [sub_resource type="AtlasTexture" id=45]
 atlas = ExtResource( 18 )
 region = Rect2( 0, 0, 25, 25 )
@@ -172,10 +198,6 @@ region = Rect2( 100, 0, 25, 25 )
 [sub_resource type="AtlasTexture" id=44]
 atlas = ExtResource( 44 )
 region = Rect2( 0, 0, 25, 26 )
-
-[sub_resource type="AtlasTexture" id=43]
-atlas = ExtResource( 43 )
-region = Rect2( 50, 52, 25, 26 )
 
 [sub_resource type="AtlasTexture" id=27]
 atlas = ExtResource( 43 )
@@ -221,26 +243,6 @@ region = Rect2( 25, 0, 25, 26 )
 atlas = ExtResource( 43 )
 region = Rect2( 0, 0, 25, 26 )
 
-[sub_resource type="AtlasTexture" id=38]
-atlas = ExtResource( 45 )
-region = Rect2( 0, 0, 25, 26 )
-
-[sub_resource type="AtlasTexture" id=39]
-atlas = ExtResource( 45 )
-region = Rect2( 25, 0, 25, 26 )
-
-[sub_resource type="AtlasTexture" id=40]
-atlas = ExtResource( 45 )
-region = Rect2( 50, 0, 25, 26 )
-
-[sub_resource type="AtlasTexture" id=41]
-atlas = ExtResource( 45 )
-region = Rect2( 75, 0, 25, 26 )
-
-[sub_resource type="AtlasTexture" id=42]
-atlas = ExtResource( 45 )
-region = Rect2( 100, 0, 25, 26 )
-
 [sub_resource type="SpriteFrames" id=50]
 animations = [ {
 "frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ) ],
@@ -258,14 +260,9 @@ animations = [ {
 "name": "def",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 45 ), SubResource( 46 ), SubResource( 47 ), SubResource( 48 ), SubResource( 49 ) ],
-"loop": false,
-"name": "die",
-"speed": 7.0
-}, {
-"frames": [ SubResource( 44 ), SubResource( 44 ) ],
+"frames": [ ExtResource( 51 ) ],
 "loop": true,
-"name": "fallhit",
+"name": "onairside",
 "speed": 5.0
 }, {
 "frames": [ SubResource( 43 ) ],
@@ -278,27 +275,26 @@ animations = [ {
 "name": "stay",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 51 ) ],
+"frames": [ SubResource( 38 ), SubResource( 39 ), SubResource( 40 ), SubResource( 41 ), SubResource( 42 ), SubResource( 41 ), SubResource( 40 ), SubResource( 39 ) ],
 "loop": true,
-"name": "onairside",
+"name": "groundrun",
+"speed": 10.0
+}, {
+"frames": [ SubResource( 45 ), SubResource( 46 ), SubResource( 47 ), SubResource( 48 ), SubResource( 49 ) ],
+"loop": false,
+"name": "die",
+"speed": 7.0
+}, {
+"frames": [ SubResource( 44 ), SubResource( 44 ) ],
+"loop": true,
+"name": "fallhit",
 "speed": 5.0
 }, {
 "frames": [ SubResource( 27 ), SubResource( 28 ), SubResource( 29 ), SubResource( 30 ), SubResource( 31 ), SubResource( 32 ), SubResource( 33 ), SubResource( 34 ), SubResource( 35 ), SubResource( 36 ), SubResource( 37 ) ],
 "loop": false,
 "name": "convertback",
 "speed": 20.0
-}, {
-"frames": [ SubResource( 38 ), SubResource( 39 ), SubResource( 40 ), SubResource( 41 ), SubResource( 42 ), SubResource( 41 ), SubResource( 40 ), SubResource( 39 ) ],
-"loop": true,
-"name": "groundrun",
-"speed": 10.0
 } ]
-
-[sub_resource type="RectangleShape2D" id=61]
-extents = Vector2( 5.64142, 0.26297 )
-
-[sub_resource type="RectangleShape2D" id=62]
-extents = Vector2( 0.0323486, 10.7962 )
 
 [sub_resource type="RectangleShape2D" id=63]
 extents = Vector2( 8, 8 )
@@ -479,15 +475,11 @@ icego = 50.0
 gravity = 9.0
 x_acceleration = 20.0
 gravityh = 6.161
-grasp = 3.25
+friction = 0.9
 moment = 10.0
 newmoment = 4.244
-lower_force = 10.0
-lower_cooldown = 2.0
-lowering_treshold = 2.0
 minup = 18.0
 icemult = 1.2
-mingoup = 20.0
 platformer_gravity = 20.0
 
 [node name="anim" type="AnimatedSprite" parent="."]
@@ -495,7 +487,7 @@ light_mask = 2
 position = Vector2( 0.0582275, 0.0350952 )
 frames = SubResource( 50 )
 animation = "win"
-frame = 4
+frame = 3
 playing = true
 
 [node name="cam" type="Camera2D" parent="."]
@@ -505,42 +497,6 @@ current = true
 zoom = Vector2( 0.5, 0.5 )
 editor_draw_drag_margin = true
 script = ExtResource( 33 )
-
-[node name="ceildetect" type="Area2D" parent="."]
-position = Vector2( 6.79493e-06, -14.8731 )
-collision_layer = 65
-collision_mask = 65
-
-[node name="col" type="CollisionShape2D" parent="ceildetect"]
-position = Vector2( -4.76837e-07, 1.51098e-05 )
-shape = SubResource( 61 )
-
-[node name="floordect" type="Area2D" parent="."]
-position = Vector2( -1.04688, 7.23715 )
-collision_layer = 65
-collision_mask = 65
-
-[node name="col" type="CollisionShape2D" parent="floordect"]
-position = Vector2( 1.04687, 7.16656 )
-shape = SubResource( 61 )
-
-[node name="leftdect" type="Area2D" parent="."]
-position = Vector2( -13.4093, -0.670741 )
-collision_layer = 65
-collision_mask = 65
-
-[node name="col" type="CollisionShape2D" parent="leftdect"]
-position = Vector2( 6.19888e-06, 3.09944e-06 )
-shape = SubResource( 62 )
-
-[node name="rightdect" type="Area2D" parent="."]
-position = Vector2( 13.5071, -0.67074 )
-collision_layer = 65
-collision_mask = 65
-
-[node name="col" type="CollisionShape2D" parent="rightdect"]
-position = Vector2( 5.24521e-06, 2.02656e-06 )
-shape = SubResource( 62 )
 
 [node name="killer" type="Area2D" parent="."]
 collision_layer = 2
@@ -767,6 +723,31 @@ __meta__ = {
 [node name="Jump" type="TouchScreenButton" parent="UI"]
 shape = SubResource( 70 )
 script = ExtResource( 3 )
+
+[node name="VerticalDebug" type="Label" parent="."]
+margin_left = -22.0
+margin_top = -34.0
+margin_right = 46.0
+margin_bottom = -20.0
+text = "vertical hit"
+script = ExtResource( 6 )
+
+[node name="Tween" type="Tween" parent="VerticalDebug"]
+
+[node name="HorizontalDebug" type="Label" parent="."]
+margin_left = 28.0
+margin_top = -6.0
+margin_right = 96.0
+margin_bottom = 8.0
+text = "horizontal hit"
+script = ExtResource( 6 )
+
+[node name="Tween" type="Tween" parent="HorizontalDebug"]
+
+[node name="ColDirDebug" type="Sprite" parent="."]
+position = Vector2( -7.95682, 9.75001 )
+scale = Vector2( 0.246403, 0.232144 )
+texture = ExtResource( 7 )
 
 [connection signal="animation_finished" from="anim" to="." method="_on_anim_animation_finished"]
 [connection signal="area_entered" from="killer" to="." method="kill_with_body"]
