@@ -2,7 +2,6 @@ extends TileMap
 
 export var bounce:float
 export var impulse_multiplier:float
-export var icemult:float=1.3
 
 func _ready():
 	if impulse_multiplier>1.4:

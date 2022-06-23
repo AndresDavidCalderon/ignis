@@ -151,10 +151,6 @@ region = Rect2( 50, 25, 25, 25 )
 atlas = ExtResource( 19 )
 region = Rect2( 75, 25, 25, 25 )
 
-[sub_resource type="AtlasTexture" id=43]
-atlas = ExtResource( 43 )
-region = Rect2( 50, 52, 25, 26 )
-
 [sub_resource type="AtlasTexture" id=38]
 atlas = ExtResource( 45 )
 region = Rect2( 0, 0, 25, 26 )
@@ -198,6 +194,10 @@ region = Rect2( 100, 0, 25, 25 )
 [sub_resource type="AtlasTexture" id=44]
 atlas = ExtResource( 44 )
 region = Rect2( 0, 0, 25, 26 )
+
+[sub_resource type="AtlasTexture" id=43]
+atlas = ExtResource( 43 )
+region = Rect2( 50, 52, 25, 26 )
 
 [sub_resource type="AtlasTexture" id=27]
 atlas = ExtResource( 43 )
@@ -260,9 +260,24 @@ animations = [ {
 "name": "def",
 "speed": 5.0
 }, {
+"frames": [ SubResource( 38 ), SubResource( 39 ), SubResource( 40 ), SubResource( 41 ), SubResource( 42 ), SubResource( 41 ), SubResource( 40 ), SubResource( 39 ) ],
+"loop": true,
+"name": "groundrun",
+"speed": 10.0
+}, {
 "frames": [ ExtResource( 51 ) ],
 "loop": true,
 "name": "onairside",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 45 ), SubResource( 46 ), SubResource( 47 ), SubResource( 48 ), SubResource( 49 ) ],
+"loop": false,
+"name": "die",
+"speed": 7.0
+}, {
+"frames": [ SubResource( 44 ), SubResource( 44 ) ],
+"loop": true,
+"name": "fallhit",
 "speed": 5.0
 }, {
 "frames": [ SubResource( 43 ) ],
@@ -273,21 +288,6 @@ animations = [ {
 "frames": [ ExtResource( 46 ) ],
 "loop": true,
 "name": "stay",
-"speed": 5.0
-}, {
-"frames": [ SubResource( 38 ), SubResource( 39 ), SubResource( 40 ), SubResource( 41 ), SubResource( 42 ), SubResource( 41 ), SubResource( 40 ), SubResource( 39 ) ],
-"loop": true,
-"name": "groundrun",
-"speed": 10.0
-}, {
-"frames": [ SubResource( 45 ), SubResource( 46 ), SubResource( 47 ), SubResource( 48 ), SubResource( 49 ) ],
-"loop": false,
-"name": "die",
-"speed": 7.0
-}, {
-"frames": [ SubResource( 44 ), SubResource( 44 ) ],
-"loop": true,
-"name": "fallhit",
 "speed": 5.0
 }, {
 "frames": [ SubResource( 27 ), SubResource( 28 ), SubResource( 29 ), SubResource( 30 ), SubResource( 31 ), SubResource( 32 ), SubResource( 33 ), SubResource( 34 ), SubResource( 35 ), SubResource( 36 ), SubResource( 37 ) ],
@@ -480,14 +480,14 @@ moment = 10.0
 newmoment = 4.244
 minup = 18.0
 icemult = 1.2
-platformer_gravity = 20.0
+platformer_gravity = 24.0
 
 [node name="anim" type="AnimatedSprite" parent="."]
 light_mask = 2
 position = Vector2( 0.0582275, 0.0350952 )
 frames = SubResource( 50 )
 animation = "win"
-frame = 3
+frame = 5
 playing = true
 
 [node name="cam" type="Camera2D" parent="."]
@@ -724,25 +724,31 @@ __meta__ = {
 shape = SubResource( 70 )
 script = ExtResource( 3 )
 
-[node name="VerticalDebug" type="Label" parent="."]
-margin_left = -22.0
-margin_top = -34.0
-margin_right = 46.0
-margin_bottom = -20.0
-text = "vertical hit"
+[node name="VerticalDebug" type="Node2D" parent="."]
+z_index = 3
 script = ExtResource( 6 )
 
 [node name="Tween" type="Tween" parent="VerticalDebug"]
 
-[node name="HorizontalDebug" type="Label" parent="."]
-margin_left = 28.0
-margin_top = -6.0
-margin_right = 96.0
-margin_bottom = 8.0
-text = "horizontal hit"
+[node name="Label" type="Label" parent="VerticalDebug"]
+margin_left = -31.0
+margin_top = -32.0
+margin_right = 38.0
+margin_bottom = -18.0
+text = "Vertical hit"
+
+[node name="HorizontalDebug" type="Node2D" parent="."]
+z_index = 3
 script = ExtResource( 6 )
 
 [node name="Tween" type="Tween" parent="HorizontalDebug"]
+
+[node name="Label2" type="Label" parent="HorizontalDebug"]
+margin_left = 17.0
+margin_top = -7.0
+margin_right = 86.0
+margin_bottom = 7.0
+text = "horizontal hit"
 
 [node name="ColDirDebug" type="Sprite" parent="."]
 position = Vector2( -7.95682, 9.75001 )

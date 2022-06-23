@@ -55,7 +55,7 @@ func _physics_process(delta):
 			
 			var current_force:float=0.0
 			
-			if sign(slide.position.y-position.y)==-sign(current_y_speed):
+			if sign(slide.normal.y)==sign(current_y_speed):
 				if not platformer_mode:
 					current_x_speed*=friction
 				if current_y_speed<0:
@@ -65,7 +65,7 @@ func _physics_process(delta):
 				current_y_speed=0
 				$VerticalDebug.show()
 				
-			if sign(slide.position.x-position.x)==sign(current_x_speed) and abs(slide.position.x)>abs(slide.position.y):
+			if sign(slide.normal.x)==-sign(current_x_speed):
 				if not platformer_mode:
 					current_y_speed*=friction
 				current_x_speed=0
@@ -98,10 +98,12 @@ func _physics_process(delta):
 		current_x_speed-=gravityh*delta*sign(current_x_speed)
 		if platformer_mode and landed and abs(current_x_speed)>1:
 			$anim.animation="groundrun"
-			$anim.speed_scale=(abs(current_x_speed)/x_acceleration)/2
+			$anim.speed_scale=abs(current_x_speed)/100
 	else:
 		current_x_speed=0
-
+		if platformer_mode:
+			$anim.animation="stay"
+		
 var downed=false
 
 
@@ -112,10 +114,11 @@ func jump():
 		current_x_speed+=x_acceleration*movement_x_sign
 		
 		if position.y>get_global_mouse_position().y:
+			print("jump!")
 			current_y_speed+=speed*(1-(current_y_speed/speed))
 			landed=false
 	else:
-		current_x_speed+=x_acceleration*0.4*movement_x_sign
+		current_x_speed+=x_acceleration*1*movement_x_sign
 	if platformer_mode:
 		$anim.flip_h=false if movement_x_sign==1 else true
 	

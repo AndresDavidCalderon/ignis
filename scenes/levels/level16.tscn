@@ -16,7 +16,6 @@
 position = Vector2( 72.989, -99.8076 )
 icego = 31.017
 gravity = 10.377
-speedh = 21.969
 gravityh = 8.82
 newmoment = 7.007
 icemult = 1.163
