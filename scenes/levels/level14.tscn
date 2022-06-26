@@ -18,7 +18,7 @@ tile_data = PoolIntArray( -262126, 0, 0, -262125, 0, 1, -262124, 0, 1, -262123, 
 [node name="player" parent="." instance=ExtResource( 5 )]
 
 [node name="anim" parent="player" index="0"]
-frame = 4
+frame = 0
 
 [node name="tileset" parent="." instance=ExtResource( 2 )]
 

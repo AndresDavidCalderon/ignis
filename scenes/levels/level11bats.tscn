@@ -12,7 +12,6 @@ extents = Vector2( 40, 19.1821 )
 
 [node name="player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 528, 416 )
-reportlive = true
 
 [node name="rou" parent="." instance=ExtResource( 2 )]
 show_collision = false

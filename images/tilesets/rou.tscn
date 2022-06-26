@@ -1,6 +1,7 @@
-[gd_scene load_steps=355 format=2]
+[gd_scene load_steps=356 format=2]
 
 [ext_resource path="res://images/tilesets/rou.png" type="Texture" id=1]
+[ext_resource path="res://images/tilesets/rou.gd" type="Script" id=2]
 
 [sub_resource type="OccluderPolygon2D" id=1]
 polygon = PoolVector2Array( 28, 28, 40, 28, 40, 40, 28, 40 )
@@ -2327,3 +2328,4 @@ cell_custom_transform = Transform2D( 40, 0, 0, 40, 0, 0 )
 show_collision = true
 format = 1
 tile_data = PoolIntArray( -196612, 0, 262148, -196611, 0, 589826, -262142, 0, 589828, -262141, 0, 262145, -131076, 0, 655365, -131075, 0, 393217, -131074, 0, 131077, -131073, 0, 8, -196608, 0, 8, -196607, 0, 131078, -196606, 0, 327688, -196605, 0, 655366, -65539, 0, 131076, -131070, 0, 131076, -3, 0, 65541, -65534, 0, 524295, 65533, 0, 65541, 1, 0, 1179652, 2, 0, 65543, 131069, 0, 131075, 65538, 0, 786440, 196604, 0, 720897, 196605, 0, 393216, 196606, 0, 131077, 196607, 0, 8, 131072, 0, 8, 131073, 0, 131078, 131074, 0, 327689, 131075, 0, 720898, 262140, 0, 262147, 262141, 0, 589830, 196610, 0, 589829, 196611, 0, 262146 )
+script = ExtResource( 2 )

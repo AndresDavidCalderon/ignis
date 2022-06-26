@@ -51,31 +51,43 @@ func _physics_process(delta):
 	if get_slide_count()>0:
 		for idx in get_slide_count()-1:
 			var slide:=get_slide_collision(idx)
-			$ColDirDebug.global_position=slide.position
+			$ColDirDebug.position=slide.normal*10
 			
 			var current_force:float=0.0
 			
-			if sign(slide.normal.y)==sign(current_y_speed):
-				if not platformer_mode:
-					current_x_speed*=friction
-				if current_y_speed<0:
-					if platformer_mode and not landed:
-						$anim.animation="fallhit"
-						landed=true
-				current_y_speed=0
-				$VerticalDebug.show()
-				
-			if sign(slide.normal.x)==-sign(current_x_speed):
-				if not platformer_mode:
-					current_y_speed*=friction
-				current_x_speed=0
-				$HorizontalDebug.show()
-				
+			var skip:=false
 			if slide.collider.has_method("apply_effect"):
-				var new_forces=slide.collider.apply_effect(slide.position-position)
+				var new_forces:Vector2=slide.collider.apply_effect(slide.normal,delta)
+				current_x_speed=new_forces.x
+				current_y_speed=new_forces.y
+				$EffectDebug.show()
+				$EffectDebug/Forces.text=str(new_forces)
+				$EffectDir.position=new_forces.normalized()*10
+				if slide.collider.ignore_collission:
+					skip=true
+			
+			if not skip:
+				if sign(slide.normal.y)==sign(current_y_speed) and $FromJump.time_left==0:
+					if not platformer_mode:
+						current_x_speed*=1-(friction*delta)
+					if current_y_speed<0:
+						if platformer_mode and not landed:
+							$anim.animation="fallhit"
+							landed=true
+					current_y_speed=0
+					$VerticalDebug.show()
+					
+				if sign(slide.normal.x)==-sign(current_x_speed):
+					if not platformer_mode:
+						current_y_speed*=1-(friction*delta)
+					current_x_speed=0
+					$HorizontalDebug.show()
 				
 	else:
 		landed=false
+	
+	if $Floor.get_overlapping_bodies().size()>0:
+		landed=true
 	
 	if current_y_speed>0:
 		current_y_speed-=gravity*delta
@@ -101,7 +113,7 @@ func _physics_process(delta):
 			$anim.speed_scale=abs(current_x_speed)/100
 	else:
 		current_x_speed=0
-		if platformer_mode:
+		if platformer_mode and landed:
 			$anim.animation="stay"
 		
 var downed=false
@@ -114,9 +126,9 @@ func jump():
 		current_x_speed+=x_acceleration*movement_x_sign
 		
 		if position.y>get_global_mouse_position().y:
-			print("jump!")
 			current_y_speed+=speed*(1-(current_y_speed/speed))
 			landed=false
+			$FromJump.start()
 	else:
 		current_x_speed+=x_acceleration*1*movement_x_sign
 	if platformer_mode:
