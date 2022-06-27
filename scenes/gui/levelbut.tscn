@@ -26,9 +26,9 @@ shadow_size = 4
 [node name="levelbut" type="Button"]
 light_mask = 0
 margin_left = 1.0
-margin_right = 121.0
-margin_bottom = 120.0
-rect_min_size = Vector2( 120, 120 )
+margin_right = 161.0
+margin_bottom = 160.0
+rect_min_size = Vector2( 160, 160 )
 custom_colors/font_color_disabled = Color( 0.321569, 0.109804, 0.109804, 1 )
 custom_colors/font_color = Color( 0.172549, 0.027451, 0.462745, 1 )
 custom_colors/font_color_hover = Color( 0, 0, 0, 1 )

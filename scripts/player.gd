@@ -36,7 +36,7 @@ var last_direction:int=0
 
 func _ready():
 	levelman.settoplay()
-	
+	levelman.checkpoint=null
 	#will be reverted when the transitioner opens
 	set_physics_process(false)
 	$anim.animation="def"

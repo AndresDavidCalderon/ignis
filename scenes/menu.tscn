@@ -20,11 +20,11 @@
 [ext_resource path="res://images/gui/continue.png" type="Texture" id=19]
 
 [sub_resource type="DynamicFont" id=9]
-size = 64
+size = 80
 font_data = ExtResource( 3 )
 
 [sub_resource type="DynamicFont" id=10]
-size = 64
+size = 80
 outline_size = 2
 outline_color = Color( 0.164706, 0.439216, 0.054902, 1 )
 font_data = ExtResource( 3 )
@@ -52,7 +52,7 @@ angle_random = 0.24
 color_ramp = SubResource( 2 )
 
 [sub_resource type="DynamicFont" id=4]
-size = 32
+size = 64
 outline_size = 2
 outline_color = Color( 0.137255, 0.27451, 0.4, 1 )
 font_data = ExtResource( 3 )
@@ -64,7 +64,7 @@ action = "go"
 shortcut = SubResource( 5 )
 
 [sub_resource type="DynamicFont" id=7]
-size = 40
+size = 64
 font_data = ExtResource( 3 )
 
 [node name="menu" type="Control"]
@@ -98,23 +98,23 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -222.0
-margin_top = -69.0
-margin_right = 222.0
-margin_bottom = 69.0
+margin_left = -276.0
+margin_top = -84.0
+margin_right = 276.0
+margin_bottom = 84.0
 alignment = 1
 
 [node name="progress" type="Button" parent="settings/cont"]
-margin_right = 444.0
-margin_bottom = 66.0
+margin_right = 552.0
+margin_bottom = 81.0
 custom_colors/font_color = Color( 1, 0, 0, 1 )
 custom_fonts/font = SubResource( 9 )
 text = "delete progress"
 
 [node name="ads" type="CheckBox" parent="settings/cont"]
-margin_top = 70.0
-margin_right = 444.0
-margin_bottom = 138.0
+margin_top = 85.0
+margin_right = 552.0
+margin_bottom = 168.0
 custom_fonts/font = SubResource( 10 )
 custom_icons/checked = ExtResource( 5 )
 custom_icons/unchecked = ExtResource( 1 )
@@ -176,10 +176,10 @@ show_collision = false
 tile_data = PoolIntArray( -983044, 0, 655361, -983043, 0, 262151, -983042, 0, 131080, -983041, 0, 131080, -1048576, 0, 131080, -1048575, 0, 131080, -1048574, 0, 131080, -1048573, 0, 262150, -1048572, 0, 655362, -917507, 0, 524290, -917506, 0, 65537, -917505, 0, 65537, -983040, 0, 65537, -983039, 0, 65537, -983038, 0, 327686, -983037, 0, 393222, -851972, 0, 1179652, -851971, 0, 196609, -851970, 0, 65537, -851969, 0, 65537, -917504, 0, 65537, -917503, 0, 327686, -917502, 0, 393222, -786435, 0, 458761, -786434, 0, 65537, -786433, 0, 65537, -851968, 0, 327686, -851967, 0, 393222, -720899, 0, 327682, -720898, 0, 327686, -720897, 0, 458758, -786432, 0, 589830, -655364, 0, 720897, -655363, 0, 327685, -655362, 0, 458760, -589828, 0, 655365, -589827, 0, 196611, -589826, 0, 655366, -524291, 0, 1179651, -196608, 0, 6, -3, 0, 6, 1, 0, 6, 196604, 0, 196617, 262140, 0, 262144, 458752, 0, 6, 589825, 0, 655361, 589826, 0, 196614, 655362, 0, 786432 )
 
 [node name="go" type="Button" parent="portim"]
-margin_left = 61.9535
-margin_top = 187.071
-margin_right = 209.953
-margin_bottom = 223.071
+margin_left = 16.0
+margin_top = 189.5
+margin_right = 252.0
+margin_bottom = 255.5
 custom_fonts/font = SubResource( 4 )
 shortcut = SubResource( 6 )
 text = "START"
@@ -187,8 +187,8 @@ clip_text = true
 expand_icon = true
 
 [node name="logo" type="Sprite" parent="portim"]
-position = Vector2( 138.324, 117.712 )
-scale = Vector2( 0.199086, 0.199086 )
+position = Vector2( 145, 108.5 )
+scale = Vector2( 0.3, 0.3 )
 texture = ExtResource( 4 )
 
 [node name="LevelSelection" type="Button" parent="."]
@@ -196,19 +196,23 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -117.0
-margin_top = -118.0
-margin_right = -57.0001
-margin_bottom = -57.9998
+margin_left = -197.0
+margin_top = -196.0
+margin_right = -119.0
+margin_bottom = -117.0
 rect_scale = Vector2( 1.93674, 1.93674 )
 icon = ExtResource( 7 )
 flat = true
+icon_align = 1
+expand_icon = true
 
 [node name="Settings" type="Button" parent="."]
 anchor_top = 1.0
 anchor_bottom = 1.0
-margin_top = -44.0
-margin_right = 105.0
+margin_left = 83.0
+margin_top = -155.0
+margin_right = 243.0
+margin_bottom = -89.0
 custom_colors/font_color_disabled = Color( 1, 1, 1, 1 )
 custom_fonts/font = SubResource( 7 )
 text = "SETS"

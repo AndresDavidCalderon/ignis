@@ -34,49 +34,49 @@ anchor_right = 2.0
 anchor_bottom = 1.0
 
 [node name="Grid" type="GridContainer" parent="Buttons/Buttons2"]
-margin_left = 172.0
-margin_top = 230.0
-margin_right = 852.0
-margin_bottom = 490.0
+margin_left = 72.0
+margin_top = 190.0
+margin_right = 952.0
+margin_bottom = 530.0
 custom_constants/vseparation = 20
 custom_constants/hseparation = 20
 columns = 5
 
 [node name="levelbut12" parent="Buttons/Buttons2/Grid" instance=ExtResource( 1 )]
 margin_left = 0.0
-margin_right = 120.0
+margin_right = 160.0
 text = "11"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="levelbut13" parent="Buttons/Buttons2/Grid" instance=ExtResource( 1 )]
-margin_left = 140.0
-margin_right = 260.0
+margin_left = 180.0
+margin_right = 340.0
 text = "12"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="levelbut16" parent="Buttons/Buttons2/Grid" instance=ExtResource( 1 )]
-margin_left = 280.0
-margin_right = 400.0
+margin_left = 360.0
+margin_right = 520.0
 text = "13"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="levelbut14" parent="Buttons/Buttons2/Grid" instance=ExtResource( 1 )]
-margin_left = 420.0
-margin_right = 540.0
+margin_left = 540.0
+margin_right = 700.0
 text = "14"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="levelbut17" parent="Buttons/Buttons2/Grid" instance=ExtResource( 1 )]
-margin_left = 560.0
-margin_right = 680.0
+margin_left = 720.0
+margin_right = 880.0
 text = "15"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -84,49 +84,49 @@ __meta__ = {
 
 [node name="levelbut15" parent="Buttons/Buttons2/Grid" instance=ExtResource( 1 )]
 margin_left = 0.0
-margin_top = 140.0
-margin_right = 120.0
-margin_bottom = 260.0
+margin_top = 180.0
+margin_right = 160.0
+margin_bottom = 340.0
 text = "16"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="levelbut18" parent="Buttons/Buttons2/Grid" instance=ExtResource( 1 )]
-margin_left = 140.0
-margin_top = 140.0
-margin_right = 260.0
-margin_bottom = 260.0
+margin_left = 180.0
+margin_top = 180.0
+margin_right = 340.0
+margin_bottom = 340.0
 text = "17"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="levelbut19" parent="Buttons/Buttons2/Grid" instance=ExtResource( 1 )]
-margin_left = 280.0
-margin_top = 140.0
-margin_right = 400.0
-margin_bottom = 260.0
+margin_left = 360.0
+margin_top = 180.0
+margin_right = 520.0
+margin_bottom = 340.0
 text = "18"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="levelbut20" parent="Buttons/Buttons2/Grid" instance=ExtResource( 1 )]
-margin_left = 420.0
-margin_top = 140.0
-margin_right = 540.0
-margin_bottom = 260.0
+margin_left = 540.0
+margin_top = 180.0
+margin_right = 700.0
+margin_bottom = 340.0
 text = "19"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="levelbut21" parent="Buttons/Buttons2/Grid" instance=ExtResource( 1 )]
-margin_left = 560.0
-margin_top = 140.0
-margin_right = 680.0
-margin_bottom = 260.0
+margin_left = 720.0
+margin_top = 180.0
+margin_right = 880.0
+margin_bottom = 340.0
 text = "20"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -137,48 +137,48 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 
 [node name="Grid" type="GridContainer" parent="Buttons/Buttons1"]
-margin_left = 172.0
-margin_top = 230.0
-margin_right = 852.0
-margin_bottom = 490.0
+margin_left = 72.0
+margin_top = 190.0
+margin_right = 952.0
+margin_bottom = 530.0
 custom_constants/vseparation = 20
 custom_constants/hseparation = 20
 columns = 5
 
 [node name="levelbut5" parent="Buttons/Buttons1/Grid" instance=ExtResource( 1 )]
 margin_left = 0.0
-margin_right = 120.0
+margin_right = 160.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="levelbut2" parent="Buttons/Buttons1/Grid" instance=ExtResource( 1 )]
-margin_left = 140.0
-margin_right = 260.0
+margin_left = 180.0
+margin_right = 340.0
 text = "2"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="levelbut3" parent="Buttons/Buttons1/Grid" instance=ExtResource( 1 )]
-margin_left = 280.0
-margin_right = 400.0
+margin_left = 360.0
+margin_right = 520.0
 text = "3"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="levelbut4" parent="Buttons/Buttons1/Grid" instance=ExtResource( 1 )]
-margin_left = 420.0
-margin_right = 540.0
+margin_left = 540.0
+margin_right = 700.0
 text = "4"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="levelbut6" parent="Buttons/Buttons1/Grid" instance=ExtResource( 1 )]
-margin_left = 560.0
-margin_right = 680.0
+margin_left = 720.0
+margin_right = 880.0
 text = "5"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -186,49 +186,49 @@ __meta__ = {
 
 [node name="levelbut7" parent="Buttons/Buttons1/Grid" instance=ExtResource( 1 )]
 margin_left = 0.0
-margin_top = 140.0
-margin_right = 120.0
-margin_bottom = 260.0
+margin_top = 180.0
+margin_right = 160.0
+margin_bottom = 340.0
 text = "6"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="levelbut8" parent="Buttons/Buttons1/Grid" instance=ExtResource( 1 )]
-margin_left = 140.0
-margin_top = 140.0
-margin_right = 260.0
-margin_bottom = 260.0
+margin_left = 180.0
+margin_top = 180.0
+margin_right = 340.0
+margin_bottom = 340.0
 text = "7"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="levelbut9" parent="Buttons/Buttons1/Grid" instance=ExtResource( 1 )]
-margin_left = 280.0
-margin_top = 140.0
-margin_right = 400.0
-margin_bottom = 260.0
+margin_left = 360.0
+margin_top = 180.0
+margin_right = 520.0
+margin_bottom = 340.0
 text = "8"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="levelbut10" parent="Buttons/Buttons1/Grid" instance=ExtResource( 1 )]
-margin_left = 420.0
-margin_top = 140.0
-margin_right = 540.0
-margin_bottom = 260.0
+margin_left = 540.0
+margin_top = 180.0
+margin_right = 700.0
+margin_bottom = 340.0
 text = "9"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="levelbut11" parent="Buttons/Buttons1/Grid" instance=ExtResource( 1 )]
-margin_left = 560.0
-margin_top = 140.0
-margin_right = 680.0
-margin_bottom = 260.0
+margin_left = 720.0
+margin_top = 180.0
+margin_right = 880.0
+margin_bottom = 340.0
 text = "10"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -246,27 +246,30 @@ anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-margin_left = -19.0
-margin_top = 58.0
-margin_right = 1.0
-margin_bottom = 98.0
+margin_left = 55.9998
+margin_top = 157.0
+margin_right = 156.0
+margin_bottom = 257.0
 rect_rotation = 180.0
 rect_scale = Vector2( 2.95339, 2.95339 )
 texture_normal = ExtResource( 5 )
 texture_hover = ExtResource( 6 )
+expand = true
+stretch_mode = 5
 
 [node name="Left" type="TextureButton" parent="UI"]
-visible = false
 anchor_top = 0.5
 anchor_bottom = 0.5
-margin_left = 22.0
-margin_top = -59.0
-margin_right = 42.0
-margin_bottom = -19.0
+margin_left = -34.0
+margin_top = -170.0
+margin_right = 66.0
+margin_bottom = -70.0
 rect_rotation = 359.999
 rect_scale = Vector2( 2.95339, 2.95339 )
 texture_normal = ExtResource( 5 )
 texture_hover = ExtResource( 6 )
+expand = true
+stretch_mode = 5
 
 [node name="Decoration" type="Node2D" parent="."]
 position = Vector2( 1498, 309 )

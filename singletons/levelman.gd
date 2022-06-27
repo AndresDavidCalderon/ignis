@@ -1,6 +1,7 @@
 extends Node
 
 signal on_pause(enabled)
+signal lag()
 
 var checkpoint
 var player:KinematicBody2D
@@ -8,6 +9,7 @@ export(Dictionary) var settings
 var ads
 var levelend=[]
 var paused=false setget set_pause
+
 
 func _ready():
 	paused=get_tree().paused
@@ -76,3 +78,23 @@ func set_pause(enabled):
 	paused=enabled
 	get_tree().paused=enabled
 	emit_signal("on_pause",enabled)
+
+func rescale(item:Control):
+	var original_area=ProjectSettings.get("display/window/size/width")*ProjectSettings.get("display/window/size/height")
+	var new_area=get_viewport().size.x*get_viewport().size.y
+	item.rect_size*=new_area/original_area
+
+var lag
+
+func _input(event):
+	if event.is_action_pressed("lag"):
+		lag=not lag
+
+func _process(delta):
+	if Time.get_ticks_msec()<4000:
+		return
+	if Engine.get_frames_per_second()<25:
+		emit_signal("lag")
+	if lag:
+		for i in 800000:
+			i=sqrt(i)

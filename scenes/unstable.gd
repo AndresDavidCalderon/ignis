@@ -13,9 +13,16 @@ func _physics_process(delta):
 		move_and_slide(Vector2(0,(speed*2)*multiplier*delta))
 		multiplier+=momenter*delta
 
-func _ready():
-	$trig.connect("body_entered",self,"_on_trig_body_entered")
-
 func _on_trig_body_entered(body):
 	if body.name=="player":
 		falling=true
+
+func _ready():
+	levelman.connect("lag",self,"on_lag")
+
+func on_lag():
+	if $all/dust.amount>2:
+		$all/dust.amount/=2
+	else:
+		$all/dust.amount=0
+
