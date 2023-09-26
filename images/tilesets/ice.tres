@@ -1,6 +1,4 @@
-[gd_resource type="TileSet" load_steps=17 format=2]
-
-[ext_resource path="res://images/tilesets/ice.png" type="Texture" id=1]
+[gd_resource type="TileSet" load_steps=16 format=2]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 20, 20, 0, 40, 0, 40, 40, 0, 40 )
@@ -49,7 +47,6 @@ points = PoolVector2Array( 20, 0, 40, 20, 40, 40, 20, 40, 0, 20, 0, 0 )
 
 [resource]
 0/name = "ice.png 0"
-0/texture = ExtResource( 1 )
 0/tex_offset = Vector2( 0, 0 )
 0/modulate = Color( 1, 1, 1, 1 )
 0/region = Rect2( 0, 0, 384, 128 )
