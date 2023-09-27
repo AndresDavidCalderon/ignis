@@ -1,10 +1,8 @@
-[gd_scene load_steps=28 format=2]
+[gd_scene load_steps=25 format=2]
 
-[ext_resource path="res://images/gui/checkmark.png" type="Texture" id=1]
 [ext_resource path="res://images/withoutef.png" type="Texture" id=2]
 [ext_resource path="res://fonts/pixelable.ttf" type="DynamicFontData" id=3]
 [ext_resource path="res://images/LOGO IGNIS.png" type="Texture" id=4]
-[ext_resource path="res://images/gui/checkyes.png" type="Texture" id=5]
 [ext_resource path="res://scripts/menu.gd" type="Script" id=6]
 [ext_resource path="res://images/gui/levels.png" type="Texture" id=7]
 [ext_resource path="res://scenes/levels/tutorial.tscn" type="PackedScene" id=8]
@@ -21,12 +19,6 @@
 
 [sub_resource type="DynamicFont" id=9]
 size = 80
-font_data = ExtResource( 3 )
-
-[sub_resource type="DynamicFont" id=10]
-size = 80
-outline_size = 2
-outline_color = Color( 0.164706, 0.439216, 0.054902, 1 )
 font_data = ExtResource( 3 )
 
 [sub_resource type="Gradient" id=1]
@@ -105,20 +97,12 @@ margin_bottom = 84.0
 alignment = 1
 
 [node name="progress" type="Button" parent="settings/cont"]
+margin_top = 43.0
 margin_right = 552.0
-margin_bottom = 81.0
+margin_bottom = 124.0
 custom_colors/font_color = Color( 1, 0, 0, 1 )
 custom_fonts/font = SubResource( 9 )
 text = "delete progress"
-
-[node name="ads" type="CheckBox" parent="settings/cont"]
-margin_top = 85.0
-margin_right = 552.0
-margin_bottom = 168.0
-custom_fonts/font = SubResource( 10 )
-custom_icons/checked = ExtResource( 5 )
-custom_icons/unchecked = ExtResource( 1 )
-text = "ads"
 
 [node name="portim" type="TextureRect" parent="."]
 anchor_left = 0.5
@@ -219,8 +203,6 @@ text = "SETS"
 
 [connection signal="pressed" from="settings/back" to="." method="_on_back_pressed"]
 [connection signal="pressed" from="settings/cont/progress" to="." method="_on_progress_pressed"]
-[connection signal="pressed" from="settings/cont/ads" to="." method="_on_ads_pressed"]
-[connection signal="toggled" from="settings/cont/ads" to="." method="_on_ads_toggled"]
 [connection signal="pressed" from="portim/go" to="." method="_on_go_pressed"]
 [connection signal="pressed" from="LevelSelection" to="." method="_on_levels_pressed"]
 [connection signal="pressed" from="Settings" to="." method="_on_settings_pressed"]

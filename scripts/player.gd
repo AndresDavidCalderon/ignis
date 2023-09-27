@@ -25,8 +25,6 @@ var current_x_speed:float=0
 var platformer_mode:bool=false
 export(float) var icemult=1.4
 
-export(int) var _c_onplatformer
-
 #once the y force goes belong this treshold, the player falls.
 export(float) var min_y_force
 export(float) var platformer_gravity
@@ -120,8 +118,11 @@ var downed=false
 
 
 func jump():
-	var movement_x_sign:int=sign(position.x-get_global_mouse_position().x)
+	var movement_x_sign:int=sign(position.x-get_global_mouse_position().x)*-1
 	var movement_y_sign:int=sign(position.y-get_global_mouse_position().y)
+	if levelman.settings["invert"]:
+		movement_x_sign*=-1
+	
 	if platformer_mode==false or landed:
 		current_x_speed+=x_acceleration*movement_x_sign
 		
