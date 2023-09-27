@@ -10,30 +10,6 @@
 [ext_resource path="res://images/tilesets/lava/lava.tscn" type="PackedScene" id=8]
 [ext_resource path="res://sound/bat/bat short.mp3" type="AudioStream" id=9]
 
-[sub_resource type="AtlasTexture" id=1]
-atlas = ExtResource( 2 )
-region = Rect2( 300, 30, 30, 30 )
-
-[sub_resource type="AtlasTexture" id=2]
-atlas = ExtResource( 2 )
-region = Rect2( 270, 30, 30, 30 )
-
-[sub_resource type="AtlasTexture" id=3]
-atlas = ExtResource( 2 )
-region = Rect2( 240, 30, 30, 30 )
-
-[sub_resource type="AtlasTexture" id=4]
-atlas = ExtResource( 2 )
-region = Rect2( 240, 30, 30, 30 )
-
-[sub_resource type="AtlasTexture" id=5]
-atlas = ExtResource( 2 )
-region = Rect2( 270, 30, 30, 30 )
-
-[sub_resource type="AtlasTexture" id=6]
-atlas = ExtResource( 2 )
-region = Rect2( 300, 30, 30, 30 )
-
 [sub_resource type="AtlasTexture" id=7]
 atlas = ExtResource( 2 )
 region = Rect2( 0, 0, 30, 30 )
@@ -78,6 +54,30 @@ region = Rect2( 270, 0, 30, 30 )
 atlas = ExtResource( 2 )
 region = Rect2( 300, 0, 30, 30 )
 
+[sub_resource type="AtlasTexture" id=4]
+atlas = ExtResource( 2 )
+region = Rect2( 240, 30, 30, 30 )
+
+[sub_resource type="AtlasTexture" id=5]
+atlas = ExtResource( 2 )
+region = Rect2( 270, 30, 30, 30 )
+
+[sub_resource type="AtlasTexture" id=6]
+atlas = ExtResource( 2 )
+region = Rect2( 300, 30, 30, 30 )
+
+[sub_resource type="AtlasTexture" id=1]
+atlas = ExtResource( 2 )
+region = Rect2( 300, 30, 30, 30 )
+
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 2 )
+region = Rect2( 270, 30, 30, 30 )
+
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 2 )
+region = Rect2( 240, 30, 30, 30 )
+
 [sub_resource type="AtlasTexture" id=18]
 atlas = ExtResource( 2 )
 region = Rect2( 30, 60, 30, 30 )
@@ -88,20 +88,20 @@ region = Rect2( 60, 60, 30, 30 )
 
 [sub_resource type="SpriteFrames" id=20]
 animations = [ {
-"frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ) ],
-"loop": false,
-"name": "leftsleep",
-"speed": 5.0
+"frames": [ SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ), SubResource( 12 ), SubResource( 13 ), SubResource( 14 ), SubResource( 15 ), SubResource( 16 ), SubResource( 17 ) ],
+"loop": true,
+"name": "fly",
+"speed": 15.0
 }, {
 "frames": [ SubResource( 4 ), SubResource( 5 ), SubResource( 6 ) ],
 "loop": false,
 "name": "gosleep",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ), SubResource( 12 ), SubResource( 13 ), SubResource( 14 ), SubResource( 15 ), SubResource( 16 ), SubResource( 17 ) ],
-"loop": true,
-"name": "fly",
-"speed": 15.0
+"frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ) ],
+"loop": false,
+"name": "leftsleep",
+"speed": 5.0
 }, {
 "frames": [ SubResource( 18 ), SubResource( 19 ) ],
 "loop": false,
@@ -345,7 +345,6 @@ extents = Vector2( 64, 144 )
 
 [node name="player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 488, 416.461 )
-reportlive = true
 
 [node name="ur" parent="player" instance=ExtResource( 4 )]
 position = Vector2( 40, -48 )
@@ -371,7 +370,6 @@ script = ExtResource( 3 )
 position = Vector2( 3.05176e-05, 0 )
 frames = SubResource( 20 )
 animation = "fly"
-frame = 4
 playing = true
 
 [node name="tuto" type="AnimationPlayer" parent="teachbat"]
