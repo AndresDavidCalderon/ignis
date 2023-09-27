@@ -7,7 +7,10 @@ func _ready():
 
 func _on_volume_toggled(button_pressed):
 	levelman.settings["sound"]=button_pressed
-
+	if button_pressed:
+		levelman.get_node("background").play()
+	else:
+		levelman.get_node("background").stop()
 
 func _on_invert_toggled(button_pressed):
 	levelman.settings["invert"]=button_pressed

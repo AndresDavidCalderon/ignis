@@ -7,8 +7,50 @@
 [ext_resource path="res://scenes/gui/styles/focus.tres" type="StyleBox" id=5]
 [ext_resource path="res://images/gui/continue.png" type="Texture" id=6]
 [ext_resource path="res://scenes/gui/continue.gd" type="Script" id=7]
-[ext_resource path="res://scenes/gui/ad.gd" type="Script" id=8]
 [ext_resource path="res://fonts/pixelable.ttf" type="DynamicFontData" id=9]
+
+[sub_resource type="GDScript" id=2]
+script/source = "extends Node
+
+
+# Declare member variables here. Examples:
+# var a = 2
+# var b = \"text\"
+
+
+# Called when the node enters the scene tree for the first time.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+#func _process(delta):
+#	pass
+func _ready():
+	$ad.load_interstitial()
+	$canv/sider/continue.visible=false
+	if OS.get_name()==\"Windows\":
+		_on_ad_interstitial_loaded()
+
+func _on_ad_interstitial_failed_to_load(error_code):
+	$canv/sider/continue.visible=true
+	$canv/sider/label.visible=true
+	$canv/sider/label.text=\"error loading ad: \"+str(error_code)
+
+
+func _on_ad_interstitial_loaded():
+	$canv/sider/continue.visible=true
+	$canv/sider/label.text=TranslationServer.translate(\"THANKAD\")
+	$ad.show_interstitial()
+	$ad.disconnect(\"intierstitial_loaded\",self,\"_on_ad_interstitial_loaded\")
+
+
+func _on_continue_pressed():
+	get_tree().change_scene_to(levelman.levellist[levelman.level])
+
+
+func _on_adtimeout_timeout():
+	if not $canv/sider/continue.visible:
+		_on_ad_interstitial_failed_to_load(\"timeout\")
+"
 
 [sub_resource type="DynamicFont" id=1]
 size = 32
@@ -17,7 +59,7 @@ outline_color = Color( 0.137255, 0.27451, 0.4, 1 )
 font_data = ExtResource( 9 )
 
 [node name="main" type="Node"]
-script = ExtResource( 8 )
+script = SubResource( 2 )
 
 [node name="ad" type="Node" parent="."]
 script = ExtResource( 1 )

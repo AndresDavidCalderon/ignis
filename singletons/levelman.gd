@@ -2,13 +2,19 @@ extends Node
 
 signal on_pause(enabled)
 signal lag()
+signal settings_changed(settings)
 
 var checkpoint
 var player:KinematicBody2D
-export(Dictionary) var settings
+export(Dictionary) var settings setget set_settings
 var ads
 var levelend=[]
 var paused=false setget set_pause
+
+export(Array,PackedScene) var levellist
+var portset={}
+var level=-1
+signal loaded
 
 
 func _ready():
@@ -21,10 +27,7 @@ func _ready():
 		marked+=1
 	loadfile()
 
-export(Array,PackedScene) var levellist
-var portset={}
-var level=-1
-signal loaded
+
 
 func settoplay():
 	print("setting to pixel perfect")
@@ -34,6 +37,10 @@ func settoplay():
 			$background.play(0)
 	else:
 		prints("camera not found")
+
+func set_settings(new_settings):
+	emit_signal("settings_changed",new_settings)
+	settings=new_settings
 
 func settoui():
 	get_tree().set_screen_stretch(SceneTree.STRETCH_MODE_DISABLED,SceneTree.STRETCH_ASPECT_EXPAND,Vector2(600,1024))

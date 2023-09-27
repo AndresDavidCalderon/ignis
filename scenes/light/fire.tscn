@@ -43,3 +43,5 @@ energy = 1.49
 [node name="anim" type="AnimatedSprite" parent="li"]
 scale = Vector2( 0.0185759, 0.0185759 )
 frames = SubResource( 5 )
+frame = 1
+playing = true
