@@ -42,3 +42,11 @@ func _on_back_pressed():
 func _on_ads_toggled(button_pressed):
 	levelman.ads=button_pressed
 
+
+
+func _on_PrivacyPolicy_pressed():
+	$PrivacyPolicy.show()
+
+
+func _on_Close_pressed():
+	$PrivacyPolicy.hide()

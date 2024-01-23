@@ -1,5 +1,6 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=29 format=2]
 
+[ext_resource path="res://fonts/Oswald.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://images/withoutef.png" type="Texture" id=2]
 [ext_resource path="res://fonts/pixelable.ttf" type="DynamicFontData" id=3]
 [ext_resource path="res://images/LOGO IGNIS.png" type="Texture" id=4]
@@ -19,6 +20,12 @@
 
 [sub_resource type="DynamicFont" id=9]
 size = 80
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=10]
+size = 60
+outline_size = 2
+outline_color = Color( 0.137255, 0.27451, 0.4, 1 )
 font_data = ExtResource( 3 )
 
 [sub_resource type="Gradient" id=1]
@@ -59,6 +66,16 @@ shortcut = SubResource( 5 )
 size = 64
 font_data = ExtResource( 3 )
 
+[sub_resource type="DynamicFont" id=11]
+size = 32
+outline_size = 2
+outline_color = Color( 0.137255, 0.27451, 0.4, 1 )
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=12]
+size = 42
+font_data = ExtResource( 1 )
+
 [node name="menu" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -97,12 +114,19 @@ margin_bottom = 84.0
 alignment = 1
 
 [node name="progress" type="Button" parent="settings/cont"]
-margin_top = 43.0
+margin_top = 10.0
 margin_right = 552.0
-margin_bottom = 124.0
+margin_bottom = 91.0
 custom_colors/font_color = Color( 1, 0, 0, 1 )
 custom_fonts/font = SubResource( 9 )
 text = "delete progress"
+
+[node name="PrivacyPolicy" type="Button" parent="settings/cont"]
+margin_top = 95.0
+margin_right = 552.0
+margin_bottom = 158.0
+custom_fonts/font = SubResource( 10 )
+text = "privacy policy"
 
 [node name="portim" type="TextureRect" parent="."]
 anchor_left = 0.5
@@ -201,8 +225,94 @@ custom_colors/font_color_disabled = Color( 1, 1, 1, 1 )
 custom_fonts/font = SubResource( 7 )
 text = "SETS"
 
+[node name="PrivacyPolicy" type="Panel" parent="."]
+visible = false
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 2.0
+margin_left = 1.0
+margin_top = -2.0
+margin_right = 1.0
+margin_bottom = -2.0
+
+[node name="Close" type="Button" parent="PrivacyPolicy"]
+margin_left = 1699.0
+margin_top = 32.0
+margin_right = 1884.0
+margin_bottom = 114.0
+custom_fonts/font = SubResource( 11 )
+text = "Close"
+
+[node name="Text" type="RichTextLabel" parent="PrivacyPolicy"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 88.0
+margin_top = 136.0
+margin_right = -55.0
+margin_bottom = -64.0
+custom_fonts/normal_font = SubResource( 12 )
+bbcode_enabled = true
+bbcode_text = "[center]Ignis privacy policy[/center]
+Summary
+This applies to ignis (with the unique app identifier of org.andresdavidcalderon.ignis) from now on \"the app\".
+The developer (Andres David Calderon, identified in the play store as Andres David) does not recieve data based on the usage of the app, as such data is only stored in your device. However, some data is collected at the moment of downloading the app from the play store.
+
+[center]Data collected by google play[/center]
+When you download the game from the play store, the fact that you downloaded the app and information about your device, including:
+[ul]
+Android version
+Amount of RAM
+CPU
+GPU
+Highest version supported for OpenGL ES and Vulkan
+ABI
+form factor
+Screen size and density
+[/ul]
+While the developer recieves this data, the entity that collects it is the one managing the store front. As such, if you want to manage it, you will have to use google's tools. This data is collected to allow the developer to improve the app and fix errors within it.
+
+[center]Data collected by the app[/center]
+
+The app collects usage data to enable saving your progress in the game, this data includes: the last level you played, the levels you have completed, and your settings (such as sound and control preferences).
+This data is stored within the device, and not shared with the developer nor any third party. If you wish to delete it, it can be done by entering the app, select \"settings\" on the bottom left, and then select \"delete progress\"
+
+[center]Contact[/center]
+
+If you have any inquiries or questions, you can contact the developer on the email:
+andresdavidcalderonjimenez@gmail.com"
+text = "Ignis privacy policy
+Summary
+This applies to ignis (with the unique app identifier of org.andresdavidcalderon.ignis) from now on \"the app\".
+The developer (Andres David Calderon, identified in the play store as Andres David) does not recieve data based on the usage of the app, as such data is only stored in your device. However, some data is collected at the moment of downloading the app from the play store.
+
+Data collected by google play
+When you download the game from the play store, the fact that you downloaded the app and information about your device, including:
+
+Android version
+Amount of RAM
+CPU
+GPU
+Highest version supported for OpenGL ES and Vulkan
+ABI
+form factor
+Screen size and density
+
+While the developer recieves this data, the entity that collects it is the one managing the store front. As such, if you want to manage it, you will have to use google's tools. This data is collected to allow the developer to improve the app and fix errors within it.
+
+Data collected by the app
+
+The app collects usage data to enable saving your progress in the game, this data includes: the last level you played, the levels you have completed, and your settings (such as sound and control preferences).
+This data is stored within the device, and not shared with the developer nor any third party. If you wish to delete it, it can be done by entering the app, select \"settings\" on the bottom left, and then select \"delete progress\"
+
+Contact
+
+If you have any inquiries or questions, you can contact the developer on the email:
+andresdavidcalderonjimenez@gmail.com"
+
 [connection signal="pressed" from="settings/back" to="." method="_on_back_pressed"]
 [connection signal="pressed" from="settings/cont/progress" to="." method="_on_progress_pressed"]
+[connection signal="pressed" from="settings/cont/PrivacyPolicy" to="." method="_on_PrivacyPolicy_pressed"]
 [connection signal="pressed" from="portim/go" to="." method="_on_go_pressed"]
 [connection signal="pressed" from="LevelSelection" to="." method="_on_levels_pressed"]
 [connection signal="pressed" from="Settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="PrivacyPolicy/Close" to="." method="_on_Close_pressed"]
