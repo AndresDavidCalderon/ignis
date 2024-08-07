@@ -64,34 +64,34 @@ extents = Vector2( 121, 22 )
 
 [sub_resource type="AtlasTexture" id=5]
 atlas = ExtResource( 24 )
-region = Rect2( 300, 30, 30, 30 )
+region = Rect2( 30, 60, 30, 30 )
 
 [sub_resource type="AtlasTexture" id=6]
 atlas = ExtResource( 24 )
-region = Rect2( 270, 30, 30, 30 )
+region = Rect2( 60, 60, 30, 30 )
 
 [sub_resource type="AtlasTexture" id=7]
 atlas = ExtResource( 24 )
-region = Rect2( 240, 30, 30, 30 )
+region = Rect2( 300, 30, 30, 30 )
 
 [sub_resource type="AtlasTexture" id=8]
 atlas = ExtResource( 24 )
-region = Rect2( 30, 60, 30, 30 )
+region = Rect2( 270, 30, 30, 30 )
 
 [sub_resource type="AtlasTexture" id=9]
 atlas = ExtResource( 24 )
-region = Rect2( 60, 60, 30, 30 )
+region = Rect2( 240, 30, 30, 30 )
 
 [sub_resource type="SpriteFrames" id=10]
 animations = [ {
-"frames": [ SubResource( 5 ), SubResource( 6 ), SubResource( 7 ) ],
-"loop": false,
-"name": "leftsleep",
-"speed": 5.0
-}, {
-"frames": [ SubResource( 8 ), SubResource( 9 ) ],
+"frames": [ SubResource( 5 ), SubResource( 6 ) ],
 "loop": false,
 "name": "fall",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 7 ), SubResource( 8 ), SubResource( 9 ) ],
+"loop": false,
+"name": "leftsleep",
 "speed": 5.0
 } ]
 

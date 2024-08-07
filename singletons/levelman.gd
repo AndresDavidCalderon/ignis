@@ -98,7 +98,7 @@ func _input(event):
 		lag=not lag
 
 func _process(delta):
-	if Time.get_ticks_msec()<4000:
+	if OS.get_ticks_msec()<4000:
 		return
 	if Engine.get_frames_per_second()<25:
 		emit_signal("lag")
