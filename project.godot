@@ -12,7 +12,7 @@ config_version=4
 
 config/name="ignis"
 run/main_scene="res://scenes/menu.tscn"
-boot_splash/image="res://images/company.png"
+boot_splash/image="res://splash.png"
 boot_splash/bg_color=Color( 0, 0, 0, 1 )
 config/icon="res://icon.png"
 
@@ -25,6 +25,8 @@ levelman="*res://singletons/levelman.tscn"
 window/size/width=1920
 window/size/height=1080
 window/handheld/orientation="sensor_landscape"
+window/stretch/mode="viewport"
+window/stretch/aspect="keep_width"
 
 [editor_plugins]
 
